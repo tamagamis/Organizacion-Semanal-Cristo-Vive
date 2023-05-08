@@ -34,7 +34,7 @@
     <img src="tcvl-121x107.webp" alt="Logo de Cristo Vive">
     <h1>Organización Semanal - Cristo Vive</h1>
     <h2>Responsabilidades de Líderes</h2>
-    <h3>Archivo Generado el dia:</h3>
+    <h3>Archivo Generado el día:</h3>
     <h3 id="date"></h3>
 </header>
 
@@ -92,38 +92,23 @@
             <td contenteditable="true"></td>
             <td contenteditable="true"></td>
         </tr>
-      </tbody>
-      </table>
+    </tbody>
+</table>
 <footer>
     <p>"Texto de cita bíblica"</p>
     <p>&copy; Equipo que blanco - Cristo Vive Multimedia Confidencial</p>
-</footer>
-<button id="download-button">Descargar como PDF</button>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
-<script>
-  // Obtener una referencia al botón de descarga
-  var downloadButton = document.getElementById('download-button');
-
-  // Agregar un controlador de eventos para el clic en el botón de descarga
-  downloadButton.addEventListener('click', function() {
-      // Crear una instancia de jsPDF
-      var doc = new jsPDF();
-
-      // Obtener los datos de las celdas del formulario y agregarlos al documento PDF
-      var table = document.querySelector('table');
-      var rows = table.querySelectorAll('tr');
-
-      rows.forEach(function(row) {
-          var cells = row.querySelectorAll('td');
-          var rowData = Array.from(cells).map(function(cell) {
-              return cell.textContent.trim();
-          });
-          doc.addRow(rowData);
+  </footer>
+  <button id="print-button">Imprimir</button>
+  
+  <script>
+      // Obtener una referencia al botón de imprimir
+      var printButton = document.getElementById('print-button');
+  
+      // Agregar un controlador de eventos para el clic en el botón de imprimir
+      printButton.addEventListener('click', function() {
+          // Llamar a la función de impresión del navegador
+          window.print();
       });
-
-      // Descargar el documento PDF
-      doc.save('organizacion_semanal.pdf');
-  });
-</script>
-</body>
-</html>
+  </script>
+  </body>
+  </html>
