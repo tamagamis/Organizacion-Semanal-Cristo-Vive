@@ -27,6 +27,17 @@
             text-align: center;
             font-style: italic;
         }
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.4;
+            font-size: 72px;
+            font-weight: bold;
+            color: lightgray;
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
@@ -35,17 +46,17 @@
     <h1>Organización Semanal - Cristo Vive</h1>
     <h2>Responsabilidades de Líderes</h2>
     <h3>Archivo Generado el día:</h3>
-    <h3 id="date"></h3>
+    <h3 id="today"></h3>
 </header>
 
 <table>
     <thead>
         <tr>
             <th>Día</th>
-            <th>Fecha</th>
+            <th>Fecha del Servicio</th>
             <th>Quién dirige</th>
-            <th>Quién está a cargo de la alabanza</th>
-            <th>Meditación de la palabra</th>
+            <th>Alabanza & Adoracion</th>
+            <th>Meditación de la Palabra</th>
             <th>Actividad adicional</th>
             <th>Actividad extraordinaria</th>
             <th>Horario</th>
@@ -84,6 +95,7 @@
         </tr>
         <tr>
             <td>Domingo</td>
+            <tdcontenteditable="true"></td>
             <td contenteditable="true"></td>
             <td contenteditable="true"></td>
             <td contenteditable="true"></td>
@@ -91,24 +103,36 @@
             <td contenteditable="true"></td>
             <td contenteditable="true"></td>
             <td contenteditable="true"></td>
-        </tr>
-    </tbody>
-</table>
-<footer>
-    <p>"Texto de cita bíblica"</p>
-    <p>&copy; Equipo que blanco - Cristo Vive Multimedia Confidencial</p>
-  </footer>
-  <button id="print-button">Imprimir</button>
-  
-  <script>
-      // Obtener una referencia al botón de imprimir
-      var printButton = document.getElementById('print-button');
-  
-      // Agregar un controlador de eventos para el clic en el botón de imprimir
-      printButton.addEventListener('click', function() {
-          // Llamar a la función de impresión del navegador
-          window.print();
-      });
-  </script>
-  </body>
-  </html>
+            </tr>
+            </tbody>
+            
+            </table>
+            <footer>
+                <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado.</p>
+                <p>&copy; Equipo que blanco - Cristo Vive Multimedia Confidencial</p>
+            </footer>
+            <button id="print-button">🗂️Imprimir Organización Semanal </button>
+            
+            <div class="watermark">CRISTO VIVE</div>
+            <script>
+                // Obtener una referencia al botón de imprimir
+                var printButton = document.getElementById('print-button');
+                var watermark = document.querySelector('.watermark');
+            
+                // Agregar un controlador de eventos para el clic en el botón de imprimir
+                printButton.addEventListener('click', function() {
+                    // Ocultar el botón de imprimir
+                    printButton.style.display = 'none';
+                    // Ocultar la marca de agua
+                    watermark.style.display = 'none';
+            
+                    // Llamar a la función de impresión del navegador
+                    window.print();
+            
+                    // Restaurar la visibilidad del botón de imprimir y la marca de agua después de imprimir
+                    printButton.style.display = 'block';
+                    watermark.style.display = 'block';
+                });
+            </script>
+            </body>
+            </html>
