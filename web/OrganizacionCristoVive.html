@@ -46,7 +46,7 @@
     <h1>Organización Semanal - Cristo Vive</h1>
     <h2>Responsabilidades de Líderes</h2>
     <h3>Archivo Generado el día:</h3>
-    <h3 id="today"></h3>
+    <h3 id='today'></h3>
 </header>
 
 <table>
@@ -109,7 +109,7 @@
             </table>
             <footer>
                 <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado.</p>
-                <p>&copy; Equipo que blanco - Cristo Vive Multimedia Confidencial</p>
+                <p>&copy; Equipo queso blanco - Cristo Vive Multimedia Confidencial</p>
             </footer>
             <button id="print-button">🗂️Imprimir Organización Semanal </button>
             
@@ -133,6 +133,9 @@
                     printButton.style.display = 'block';
                     watermark.style.display = 'block';
                 });
+                var todayElement = document.getElementById('today');
+ var today = new Date();
+todayElement.textContent = 'Fecha actual: ' + today.toLocaleDateString();
             </script>
             </body>
             </html>
