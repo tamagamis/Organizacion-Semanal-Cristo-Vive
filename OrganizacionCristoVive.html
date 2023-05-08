@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Organización Semanal - Cristo Vive</title>
+  <link rel="icon" href="tcvl-121x107.webp">
+  <style>
+    /* Estilos CSS para el diseño */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    #print-button {
+      margin-top: 10px;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+    <header>
+      <img src="tcvl-121x107.webp" alt="Logo de Cristo Vive">
+      <h1>Organización Semanal - Cristo Vive</h1>
+      <h2>Responsabilidades de Líderes</h2>
+      <h3 id="current-date"></h3>
+    </header>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Día</th>
+          <th>Fecha</th>
+          <th>Quién dirige</th>
+          <th>Quién está a cargo de la alabanza</th>
+          <th>Meditación de la palabra</th>
+          <th>Actividad adicional</th>
+          <th>Actividad extraordinaria</th>
+          <th>Horario</th>
+        </tr>
+      </thead>
+    <tbody>
+      <tr>
+        <td>Martes</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>Viernes</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>Sábado</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+      <tr>
+        <td>Domingo</td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+      </tr>
+    </tbody>
+  </table>
+  <button id="print-button">Imprimir en PDF</button>
+  </footer>
+      <p>"Texto de cita bíblica"</p>
+      <p>&copy; Equipo que blanco - Cristo Vive Multimedia Confidencial</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.min.js"></script>
+    <script>
+      const currentDateElement = document.getElementById("current-date");
+      const currentDate = new Date().toLocaleDateString("es-ES", {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+      currentDateElement.textContent = currentDate;
+  
+      // Lógica JavaScript para generar el PDF y registrar el historial
+      const printButton = document.getElementById('print-button');
+      printButton.addEventListener('click', function() {
+        const table = document.querySelector("table");
+        const tableHTML = table.outerHTML;
+        const style = `
+          <style>
+            table {
+              border-collapse: collapse;
+              width: 100%;
+            }
+            th, td {
+              border: 1px solid black;
+              padding: 8px;
+              text-align: left;
+            }
+            th {
+              background-color: #f2f2f2;
+            }
+          </style>
+        `;
+        const html = `${style}${tableHTML}`;
+        const pdf = new jsPDF('p', 'pt', 'a4');
+        pdf.html(html, {
+          callback: function() {
+            pdf.save('organizador_semanal.pdf');
+            const date = new Date().toLocaleString();
+            const history = {
+              date,
+              user: 'Nombre del usuario'
+            };
+            console.log('Historial:', history);
+          }
+        });
+      });
+    </script>
+  </body>
+  </html>
