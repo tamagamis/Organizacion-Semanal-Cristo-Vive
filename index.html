@@ -35,76 +35,84 @@
     <h3 id="today"></h3>
   </header>
 <style>
+    .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
     table {
         border-collapse: collapse;
         width: 100%;
     }
     
-    table td {
+    table td, table th {
         border: 1px solid black;
         padding: 8px;
-    }
-    
-    table td:first-child {
-        font-weight: bold;
+        text-align: center;
+        background-color: #f2f2f2;
     }
 </style>
-  <table class="table-responsive">
-    <thead>
-      <tr>
-        <th style="text-align:center; background-color: #f2f2f2;">Día</th>
-        <th style="text-align:center; background-color: #f2f2f2;">Fecha del Servicio</th>
-        <th style="text-align:center; background-color: #f2f2f2;">Quién dirige</th>
-        <th style="text-align:center; background-color: #f2f2f2;">Alabanza & Adoracion</th>
-        <th style="text-align:center; background-color: #f2f2f2;">Meditación de la Palabra</th>
-        <th style="text-align:center; background-color: #f2f2f2;">Actividad adicional</th>
-        <th style="text-align:center; background-color: #f2f2f2;">Actividad extraordinaria</th>
-        <th style="text-align:center; background-color: #f2f2f2;">Horario</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Martes</td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-      </tr>
-      <tr>
-        <td>Viernes</td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-      </tr>
-      <tr>
-        <td>Sábado</td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-      </tr>
-      <tr>
-        <td>Domingo</td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-      </tr>
-    </tbody>
-  </table>
+
+<div class="table-responsive">
+    <table>
+        <thead>
+            <tr>
+                <th>Día</th>
+                <th>Fecha del Servicio</th>
+                <th>Quién dirige</th>
+                <th>Alabanza & Adoracion</th>
+                <th>Meditación de la Palabra</th>
+                <th>Actividad adicional</th>
+                <th>Actividad extraordinaria</th>
+                <th>Horario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Martes</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td>Viernes</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td>Sábado</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+            <tr>
+                <td>Domingo</td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 </footer>
   <button id="print-button">🗂️Imprimir Organización Semanal </button>
   
