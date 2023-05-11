@@ -80,12 +80,9 @@
     printButton.addEventListener('click', function() {
       // Ocultar el botón de imprimir
       printButton.style.display = 'none';
-      // Ocultar la marca de agua
-      watermark.style.display = 'none';
   
       // Llamar a la función de impresión del navegador
       window.print();
-  
       // Restaurar la visibilidad del botón de imprimir y la marca de agua después de imprimir
       printButton.style.display = 'block';
                 });
