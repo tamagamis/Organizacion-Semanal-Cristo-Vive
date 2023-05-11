@@ -70,19 +70,25 @@
       </tr>
     </tbody>
   </table>
-  <footer>
-    <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado.</p>
-    <p>&copy; Equipo queso blanco - Cristo Vive Multimedia Confidencial - Version 0.0.5</p>
-  </footer>
+</footer>
   <button id="print-button">🗂️Imprimir Organización Semanal </button>
-   <script>
+  
+  <div class="watermark">CRISTO VIVE</div>
+  <script>
+    // Obtener una referencia al botón de imprimir
+    var printButton = document.getElementById('print-button');
+    var watermark = document.querySelector('.watermark');
+  
     // Agregar un controlador de eventos para el clic en el botón de imprimir
     printButton.addEventListener('click', function() {
       // Ocultar el botón de imprimir
       printButton.style.display = 'none';
+      // Ocultar la marca de agua
+      watermark.style.display = 'none';
   
       // Llamar a la función de impresión del navegador
       window.print();
+  
       // Restaurar la visibilidad del botón de imprimir y la marca de agua después de imprimir
       printButton.style.display = 'block';
                 });
