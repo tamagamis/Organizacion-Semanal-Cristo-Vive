@@ -139,10 +139,10 @@
 <!-- Modal Structure -->
 <div id="data-modal" class="modal">
   <div class="modal-content">
-    <h4>Ingresa la información correspondiente</h4>
+    <h4>Agregar La informacion Correspondiente</h4>
     <div class="input-field">
       <input id="modal-input" type="text" class="validate">
-      <label for="modal-input">Ingresa la información correspondiente</label>
+      <label for="modal-input">estamos trabajando para usted⚙️</label>
     </div>
   </div>
   <div class="modal-footer">
@@ -199,9 +199,14 @@ todayElement.innerText = today.toLocaleDateString();
 
 // Print button functionality
 var printButton = document.getElementById('print-button');
-printButton.addEventListener('click', function() {
-  window.print();
-});
+          var watermark = document.querySelector('.watermark');
+          printButton.addEventListener('click', function() {
+            printButton.style.display = 'none';
+            watermark.style.display = 'block';
+            window.print();
+            printButton.style.display = 'block';
+            watermark.style.display = 'none';
+        });
 </script>
 </body>
 </html>
