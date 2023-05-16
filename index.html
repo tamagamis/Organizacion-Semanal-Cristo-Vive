@@ -8,41 +8,46 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <style>
     header {
-        text-align: center;
+      text-align: center;
     }
     
     header img {
-        width: 100px;
-        height: auto;
+      width: 100px;
+      height: auto;
     }
     
     h1, h2, h3 {
-        text-align: center;
-        font-size: 18px;
+      text-align: center;
+      font-size: 18px;
     }
 
     .table-responsive {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
     
     table {
-        border-collapse: collapse;
-        width: 100%;
+      border-collapse: collapse;
+      width: 100%;
     }
     
     table td, table th {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: center;
-        background-color: #f2f2f2;
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+      background-color: #f2f2f2;
     }
 
     .modal {
       width: 75% !important;
       max-height: 90% !important;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -53,15 +58,7 @@
 
   <h1>Organización Semanal - Cristo Vive</h1>
   <h2>Responsabilidades de Líderes</h2>
-  <h3>Archivo Generado el día:</h3>
   <h3 id="today"></h3>
-
-  <div class="alert alert-info alert-dismissible fade show" role="alert">
-    <strong>Welcome to Leaders Responsibilities Programming Services!</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
 
   <div class="table-responsive">
     <table>
@@ -102,94 +99,99 @@
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
           <td class="center-align">Actividad adicional</td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
           <td class="center-align">Actividad extraordinaria</td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
           <td class="center-align">Horario</td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
-          </tr>
-          </tbody>
-          </table>
-          
-            </div>
-            <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado.</p>
-            <p>&copy; Equipo Cristo Vive Multimedia Confidencial 🔒V2.2.2.5</p>
-          <button id="print-button">🗂️Imprimir PDF - Organización Semanal </button>
-            <div class="watermark">Iglesia Cristo Vive</div>
-            <!-- Modal Structure -->
-            <div id="data-modal" class="modal">
-              <div class="modal-content">
-                <h4>Ingresa los datos</h4>
-                <div class="input-field">
-                  <input id="modal-input" type="text" class="validate">
-                  <label for="modal-input">Datos</label>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
-              </div>
-            </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            <script>
-              // Initialize modal
-              document.addEventListener('DOMContentLoaded', function() {
-                var elems = document.querySelectorAll('.modal');
-                var instances = M.Modal.init(elems);
-              });
-// Open modal on cell click
-var cells = document.querySelectorAll('td[contenteditable="true"]');
-cells.forEach(function(cell) {
-  cell.addEventListener('click', function() {
-    var modalInput = document.getElementById('modal-input');
-    modalInput.value = cell.innerText;
-    var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
-    modalInstance.open();
-    modalInput.focus();
+        </tr>
+      </tbody>
+    </table>
+</div>
+<div class="footer">
+  <p>Fecha del archivo generado: <span id="file-generated-date"></span></p>
+</div>
+<p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado.</p>
+<p>&copy; Equipo Cristo Vive Multimedia Confidencial 🔒V2.2.2.5</p>
+<button id="print-button">🗂️Imprimir PDF - Organización Semanal</button>
+
+<div class="watermark">Iglesia Cristo Vive</div>
+<!-- Modal Structure -->
+<div id="data-modal" class="modal">
+  <div class="modal-content">
+    <h4>Ingresa los datos</h4>
+    <div class="input-field">
+      <input id="modal-input" type="text" class="validate">
+      <label for="modal-input">Datos</label>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  // Initialize modal
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
   });
-});
 
-// Save modal data to cell
-var modalSaveButton = document.querySelector('.modal-close');
-modalSaveButton.addEventListener('click', function() {
-  var modalInput = document.getElementById('modal-input');
-  var activeCell = document.querySelector('td[contenteditable="true"]:focus');
-  if (activeCell) {
-    activeCell.innerText = modalInput.value;
-    activeCell.blur();
-  }
-});
+  // Open modal on cell click
+  var cells = document.querySelectorAll('td[contenteditable="true"]');
+  cells.forEach(function(cell) {
+    cell.addEventListener('click', function() {
+      var modalInput = document.getElementById('modal-input');
+      modalInput.value = cell.innerText;
+      var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
+      modalInstance.open();
+      modalInput.focus();
+    });
+  });
 
-// Get today's date
-var todayElement = document.getElementById('today');
-var today = new Date();
-todayElement.textContent = 'Fecha actual: ' + today.toLocaleDateString();
+  // Save modal data to cell
+  var modalSaveButton = document.querySelector('.modal-close');
+  modalSaveButton.addEventListener('click', function() {
+    var modalInput = document.getElementById('modal-input');
+    var activeCell = document.querySelector('td[contenteditable="true"]:focus');
+    if (activeCell) {
+      activeCell.innerText = modalInput.value;
+      activeCell.blur();
+      modalInput.value = "";
+    }
+  });
 
-// Print button functionality
-var printButton = document.getElementById('print-button');
-var watermark = document.querySelector('.watermark');
-printButton.addEventListener('click', function() {
-  printButton.style.display = 'none';
-  watermark.style.display = 'block';
-  window.print();
-  printButton.style.display = 'block';
-  watermark.style.display = 'none';
+  // Get today's date
+  var todayElement = document.getElementById('today');
+  var today = new Date();
+  todayElement.textContent = 'Fecha actual: ' + today.toLocaleDateString();
+
+  // Print button functionality
+  var printButton = document.getElementById('print-button');
+  var watermark = document.querySelector('.watermark');
+  printButton.addEventListener('click', function() {
+printButton.style.display = 'none';
+watermark.style.display = 'block';
+window.print();
+printButton.style.display = 'block';
+watermark.style.display = 'none';
 });
 </script>
 </body>
-</html>
+</html>    
