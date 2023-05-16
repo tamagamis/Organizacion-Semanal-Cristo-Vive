@@ -77,52 +77,52 @@
       <tbody>
         <tr>
           <td class="center-align">Fecha del Servicio</td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
         </tr>
         <tr>
           <td class="center-align">Quién dirige</td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
         </tr>
         <tr>
           <td class="center-align">Alabanza & Adoración</td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <tdclass="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          </tr>
-          <tr>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+        </tr>
+        <tr>
           <td class="center-align">Meditación de la Palabra</td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
           </tr>
           <tr>
           <td class="center-align">Actividad adicional</td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
           </tr>
           <tr>
           <td class="center-align">Actividad extraordinaria</td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
           </tr>
           <tr>
           <td class="center-align">Horario</td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
-          <td class="editable-cell" contenteditable="true"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
           </tr>
           </tbody>
           </table>
@@ -132,6 +132,23 @@
         </div>
         <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado."</p>
         <p>&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V7 </p>
+        <div>
+        </div>
+        <button id="print-button">Imprimir Organización Semanal</button>
+        <div class="watermark">Iglesia Cristo Vive</div>
+        <!-- Modal Structure -->
+        <div id="data-modal" class="modal">
+          <div class="modal-content">
+            <h4>Ingresar los datos adecuados 😎</h4>
+            <div class="input-field">
+              <input id="modal-input" type="text" class="validate">
+              <label for="modal-input">Servidor de datos activo ✅: estamos trabajando para usted ⚙️</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
+          </div>
+        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
           // Initialize modal
@@ -140,40 +157,40 @@
             var instances = M.Modal.init(elems);
           });
           // Open modal on cell click
-    var cells = document.querySelectorAll('.editable-cell');
-    cells.forEach(function(cell) {
-      cell.addEventListener('click', function() {
-        var modalInput = document.getElementById('modal-input');
-        modalInput.value = cell.innerText;
-        var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
-        modalInstance.open();
-        modalInput.focus();
-        cell.classList.add('highlight');
-      });
-    });
-
-    // Save modal data to cell
-    var modalSaveButton = document.querySelector('.modal-close');
-    modalSaveButton.addEventListener('click', function() {
-      var modalInput = document.getElementById('modal-input');
-      var activeCell = document.querySelector('.editable-cell.highlight');
-      if (activeCell) {
-        activeCell.innerText = modalInput.value;
-        activeCell.classList.remove('highlight');
-        modalInput.value = "";
-      }
-    });
-
-    // Highlight cell on focus
-    cells.forEach(function(cell) {
-      cell.addEventListener('focus', function() {
-        cell.classList.add('highlight');
-      });
-      cell.addEventListener('blur', function() {
-        cell.classList.remove('highlight');
-     
+var cells = document.querySelectorAll('.editable-cell');
+cells.forEach(function(cell) {
+  cell.addEventListener('click', function() {
+    var modalInput = document.getElementById('modal-input');
+    modalInput.value = cell.innerText;
+    var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
+    modalInstance.open();
+    modalInput.focus();
+    cell.classList.add('highlight');
+  });
 });
+
+// Save modal data to cell
+var modalSaveButton = document.querySelector('.modal-close');
+modalSaveButton.addEventListener('click', function() {
+  var modalInput = document.getElementById('modal-input');
+  var activeCell = document.querySelector('.editable-cell.highlight');
+  if (activeCell) {
+    activeCell.innerText = modalInput.value;
+    activeCell.classList.remove('highlight');
+    modalInput.value = "";
+  }
 });
+
+// Highlight cell on focus
+cells.forEach(function(cell) {
+  cell.addEventListener('focus', function() {
+    cell.classList.add('highlight');
+  });
+  cell.addEventListener('blur', function() {
+    cell.classList.remove('highlight');
+  });
+});
+
 var today = new Date();
 var todayElement = document.getElementById('today');
 todayElement.innerText = today.toLocaleDateString();
