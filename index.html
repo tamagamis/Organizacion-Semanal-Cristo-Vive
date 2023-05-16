@@ -44,6 +44,12 @@
       width: 75% !important;
       max-height: 90% !important;
     }
+
+    #services-title {
+      font-size: 24px;
+      text-align: center;
+      padding: 10px;
+    }
   </style>
 </head>
 <body>
@@ -57,6 +63,7 @@
   <h3 id="today"></h3>
 
   <div class="table-responsive">
+    <h4 id="services-title">Church Services</h4>
     <table>
       <thead>
         <tr>
@@ -95,94 +102,95 @@
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
           <td class="center-align">Actividad adicional</td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
           <td class="center-align">Actividad extraordinaria</td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
           <td class="center-align">Horario</td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado.</p>
-  <p>&copy; Equipo Cristo Vive Multimedia Confidencial 🔒V1.0.1.1</p>
-<button id="print-button">🗂️Imprimir PDF - Organización Semanal </button>
+          </tr>
+          </tbody>
+          </table>
+          
+            </div>
+            <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado.</p>
+            <p>&copy; Equipo Cristo Vive Multimedia Confidencial 🔒V1.0.1.1</p>
+            <button id="print-button">🗂️Imprimir PDF - Organización Semanal </button>
+            <div class="watermark">Iglesia Cristo Vive</div>
+            <!-- Modal Structure -->
+            <div id="data-modal" class="modal">
+              <div class="modal-content">
+                <h4>Ingresa los datos</h4>
+                <div class="input-field">
+                  <input id="modal-input" type="text" class="validate">
+                  <label for="modal-input">Datos</label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
+              </div>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script>
+              // Initialize modal
+              document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.modal');
+                var instances = M.Modal.init(elems);
+              });
+              // Open modal on cell click
+var cells = document.querySelectorAll('td[contenteditable="true"]');
+cells.forEach(function(cell) {
+  cell.addEventListener('click', function() {
+    var modalInput = document.getElementById('modal-input');
+    modalInput.value = cell.innerText;
+    var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
+    modalInstance.open();
+    modalInput.focus();
+  });
+});
 
-  <div class="watermark">Iglesia Cristo Vive</div>
-  <!-- Modal Structure -->
-  <div id="data-modal" class="modal">
-    <div class="modal-content">
-      <h4>Ingresa los datos</h4>
-      <div class="input-field">
-        <input id="modal-input" type="text" class="validate">
-        <label for="modal-input">Datos</label>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
-    </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>
-    // Initialize modal
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.modal');
-      var instances = M.Modal.init(elems);
-    });
+// Save modal data to cell
+var modalSaveButton = document.querySelector('.modal-close');
+modalSaveButton.addEventListener('click', function() {
+  var modalInput = document.getElementById('modal-input');
+  var activeCell = document.querySelector('td[contenteditable="true"]:focus');
+  if (activeCell) {
+    activeCell.innerText = modalInput.value;
+  }
+});
 
-    // Open modal on cell click
-    var cells = document.querySelectorAll('td[contenteditable="true"]');
-    cells.forEach(function(cell) {
-      cell.addEventListener('click', function() {
-        var modalInput = document.getElementById('modal-input');
-        modalInput.value = cell.innerText;
-        var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
-        modalInstance.open();
-        modalInput.focus();
-      });
-    });
+// Get today's date
+var todayElement = document.getElementById('today');
+var today = new Date();
+todayElement.textContent = 'Fecha actual: ' + today.toLocaleDateString();
 
-    // Save modal data to cell
-    var modalSaveButton = document.querySelector('.modal-close');
-    modalSaveButton.addEventListener('click', function() {
-      var modalInput = document.getElementById('modal-input');
-      var activeCell = document.querySelector('td[contenteditable="true"]:focus');
-      activeCell.innerText = modalInput.value;
-    });
+// Print button functionality
+var printButton = document.getElementById('print-button');
+var watermark = document.querySelector('.watermark');
 
-    // Get today's date
-    var todayElement = document.getElementById('today');
-    var today = new Date();
-    todayElement.textContent = 'Fecha actual: ' + today.toLocaleDateString();
+printButton.addEventListener('click', function() {
+  printButton.style.display = 'none';
+watermark.style.display = 'none';
+window.print();
 
-    // Print button functionality
-    var printButton = document.getElementById('print-button');
-    var watermark = document.querySelector('.watermark');
-  
-    printButton.addEventListener('click', function() {
-      printButton.style.display = 'none';
-      watermark.style.display = 'none';
-  
-      window.print();
-  
-      printButton.style.display = 'block';
-    });
-  </script>
+printButton.style.display = 'block';
+});
+</script>
 </body>
 </html>
+
