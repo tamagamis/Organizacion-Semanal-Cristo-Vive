@@ -7,7 +7,52 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <style>
-    /* Your CSS styles here */
+    header {
+      text-align: center;
+    }
+    
+    header img {
+      width: 100px;
+      height: auto;
+    }
+    
+    h1, h2, h3 {
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .table-responsive {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    table td, table th {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+      background-color: #f2f2f2;
+    }
+
+    .modal {
+      width: 75% !important;
+      max-height: 90% !important;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .highlight {
+      background-color: #ffeeba !important;
+    }
   </style>
 </head>
 <body>
@@ -54,58 +99,59 @@
         <tr>
           <td class="center-align">Meditación de la Palabra</td>
           <td class="editable-cell"></td>
+          <td class="
+                 editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
-          <td class="editable-cell"></td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
           <td class="center-align">Actividad adicional</td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
           <td class="center-align">Actividad extraordinaria</td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
           <td class="center-align">Horario</td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
-        </tr>
-        </tbody>
-        </table>
-        
-          </div>
-          <div class="footer">
-            <p>Fecha del archivo generado: <span id="today"></span></p>
-          </div>
-          <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado."</p>
-          <p>&copy; Equipo Cristo Vive Multimedia Confidencial 🔒V2.2.2.9</p>
-          <button id="print-button">Imprimir Organización Semanal</button>
-          <div class="watermark">Iglesia Cristo Vive</div>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-          <script>
-            var todayElement = document.getElementById('today');
-            var today = new Date();
-            todayElement.textContent = 'Es: ' + today.toLocaleDateString();
-        
-            // Print button functionality
-            var printButton = document.getElementById('print-button');
-            var watermark = document.querySelector('.watermark');
-            printButton.addEventListener('click', function() {
-              printButton.style.display = 'none';
-              watermark.style.display = 'block';
-              window.print();
-              printButton.style.display = 'block';
-              watermark.style.display = 'none';
-            });
-          </script>
-        </body>
-        </html>
+          </tr>
+          </tbody>
+          </table>
+        </div>
+        <div class="footer">
+          <p>Fecha del archivo generado: <span id="today"></span></p>
+        </div>
+        <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado."</p>
+        <p>&copy; Equipo Cristo Vive Multimedia Confidencial 🔒V3</p>
+        <button id="print-button">Imprimir Organización Semanal</button>
+        <div class="watermark">Iglesia Cristo Vive</div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+          var todayElement = document.getElementById('today');
+          var today = new Date();
+          todayElement.textContent = 'Es: ' + today.toLocaleDateString();
+
+          // Print button functionality
+          var printButton = document.getElementById('print-button');
+          var watermark = document.querySelector('.watermark');
+          printButton.addEventListener('click', function() {
+            printButton.style.display = 'none';
+            watermark.style.display = 'block';
+            window.print();
+            printButton.style.display = 'block';
+            watermark.style.display = 'none';
+          });
+        </script>
+      </body>
+      </html>
+
