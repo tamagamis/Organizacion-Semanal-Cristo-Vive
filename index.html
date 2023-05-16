@@ -39,16 +39,14 @@
         text-align: center;
         background-color: #f2f2f2;
     }
+    
+    .first-column td {
+        width: 20%;
+    }
 
     .modal {
       width: 75% !important;
       max-height: 90% !important;
-    }
-
-    #services-title {
-      font-size: 24px;
-      text-align: center;
-      padding: 10px;
     }
   </style>
 </head>
@@ -61,9 +59,9 @@
   <h2>Responsabilidades de Líderes</h2>
   <h3>Archivo Generado el día:</h3>
   <h3 id="today"></h3>
+  <p>Welcome to the Leaders Responsibilities Scheduling Services</p>
 
   <div class="table-responsive">
-    <h4 id="services-title">Church Services</h4>
     <table>
       <thead>
         <tr>
@@ -99,7 +97,7 @@
         <tr>
           <td class="center-align">Meditación de la Palabra</td>
           <td contenteditable="true"></td>
-          <td contenteditable="true"></td>
+          <tdcontenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           </tr>
@@ -129,7 +127,7 @@
           
             </div>
             <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado.</p>
-            <p>&copy; Equipo Cristo Vive Multimedia Confidencial 🔒V1.0.1.1</p>
+            <p>&copy; Equipo Cristo Vive Multimedia Confidencial 🔒V 2.2.2.1</p>
             <button id="print-button">🗂️Imprimir PDF - Organización Semanal </button>
             <div class="watermark">Iglesia Cristo Vive</div>
             <!-- Modal Structure -->
@@ -152,7 +150,7 @@
                 var elems = document.querySelectorAll('.modal');
                 var instances = M.Modal.init(elems);
               });
-              // Open modal on cell click
+// Open modal on cell click
 var cells = document.querySelectorAll('td[contenteditable="true"]');
 cells.forEach(function(cell) {
   cell.addEventListener('click', function() {
@@ -185,12 +183,11 @@ var watermark = document.querySelector('.watermark');
 
 printButton.addEventListener('click', function() {
   printButton.style.display = 'none';
-watermark.style.display = 'none';
+  watermark.style.display = 'block';
 window.print();
-
 printButton.style.display = 'block';
+watermark.style.display = 'none';
 });
 </script>
 </body>
 </html>
-
