@@ -3,144 +3,207 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Organización Semanal - Cristo Vive</title>
-</head>
-<body>
-<style>
+  <title>Organización Semanal</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style>
     header {
-        text-align: center;
+      text-align: center;
+    }
+    header img {
+      width: 100px;
+      height: auto;
     }
     
-    header img {
-        width: 100px;
-        height: auto;
-    }
-</style>
-
-<header>
-    <img src="https://i.ibb.co/YLLzsJ8/tcvl-121x107.webp" alt="tcvl-121x107" border="0">
-</header>
-
-<style>
     h1, h2, h3 {
-        text-align: center;
-        font-size: 18px;
+      text-align: center;
+      font-size: 18px;
     }
-</style>
 
-<h1>Organización Semanal - Cristo Vive</h1>
-<h2>Responsabilidades de Líderes</h2>
-<h3>Archivo Generado el día:</h3>
-
-    <h3 id="today"></h3>
-  </header>
-<style>
     .table-responsive {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
     
     table {
-        border-collapse: collapse;
-        width: 100%;
+      border-collapse: collapse;
+      width: 100%;
     }
     
     table td, table th {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: center;
-        background-color: #f2f2f2;
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+      background-color: #f2f2f2;
     }
-</style>
 
-<div class="table-responsive">
+    .modal {
+      width: 75% !important;
+      max-height: 90% !important;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .highlight {
+      background-color: #ffeeba !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i.ibb.co/YLLzsJ8/tcvl-121x107.webp" alt="tcvl-121x107" border="0">
+  </header>
+
+  <h1>Organización Semanal - Cristo Vive</h1>
+  <h2>Responsabilidades de Líderes de la Iglesia Cristo Vive</h2>
+
+  <div class="table-responsive">
     <table>
-        <thead>
-            <tr>
-                <th>Día</th>
-                <th>Fecha del Servicio</th>
-                <th>Quién dirige</th>
-                <th>Alabanza & Adoracion</th>
-                <th>Meditación de la Palabra</th>
-                <th>Actividad adicional</th>
-                <th>Actividad extraordinaria</th>
-                <th>Horario</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Martes</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td>Viernes</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td>Sábado</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-            <tr>
-                <td>Domingo</td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-</footer>
-<p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado.</p>
- <p>&copy; Equipo Cristo Vive Multimedia Confidencial 🔒V1.0.1.1</p>
-  </footer>
-  <button id="print-button">🗂️Imprimir PDF - Organización Semanal </button>
-  
-  <div class="watermark">Iglesia Cristo Vive</div>
-  <script>
-    // Obtener una referencia al botón de imprimir
-    var printButton = document.getElementById('print-button');
-    var watermark = document.querySelector('.watermark');
-  
-    // Agregar un controlador de eventos para el clic en el botón de imprimir
-    printButton.addEventListener('click', function() {
-      // Ocultar el botón de imprimir
-      printButton.style.display = 'none';
-      // Ocultar la marca de agua
-      watermark.style.display = 'none';
-  
-      // Llamar a la función de impresión del navegador
-      window.print();
-  
-      // Restaurar la visibilidad del botón de imprimir y la marca de agua después de imprimir
-      printButton.style.display = 'block';
-                });
-                var todayElement = document.getElementById('today');
- var today = new Date();
-todayElement.textContent = 'Fecha actual: ' + today.toLocaleDateString();
-            </script>
-            </body>
-            </html>
+      <thead>
+        <tr>
+          <th></th>
+          <th class="center-align">Martes</th>
+          <th class="center-align">Viernes</th>
+          <th class="center-align">Sábado</th>
+          <th class="center-align">Domingo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="center-align">Fecha del Servicio</td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+        </tr>
+        <tr>
+          <td class="center-align">Dirige</td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+        </tr>
+        <tr>
+          <td class="center-align">Alabanza & Adoración</td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+        </tr>
+        <tr>
+          <td class="center-align">Meditación de la Palabra</td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          </tr>
+          <tr>
+          <td class="center-align">Actividad adicional</td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          </tr>
+          <tr>
+          <td class="center-align">Actividad extraordinaria</td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          </tr>
+          <tr>
+          <td class="center-align">Horario</td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          <td class="editable-cell"></td>
+          </tr>
+          </tbody>
+          </table>
+        </div>
+        <div class="footer">
+          <p>Fecha del archivo generado: <span id="today"></span></p>
+        </div>
+        <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado."</p>
+        <p>&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V7 </p>
+        <div>
+        </div>
+        <button id="print-button">Imprimir Organización Semanal</button>
+        <div class="watermark">Iglesia Cristo Vive</div>
+        <!-- Modal Structure -->
+        <div id="data-modal" class="modal">
+          <div class="modal-content">
+            <h4>Ingresar los datos adecuados 😎</h4>
+            <div class="input-field">
+              <input id="modal-input" type="text" class="validate">
+              <label for="modal-input">Servidor de datos activo ✅: estamos trabajando para usted ⚙️</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
+          </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+          // Initialize modal
+          document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+          });
+          // Open modal on cell click
+var cells = document.querySelectorAll('.editable-cell');
+cells.forEach(function(cell) {
+  cell.addEventListener('click', function() {
+    var modalInput = document.getElementById('modal-input');
+    modalInput.value = cell.innerText;
+    var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
+    modalInstance.open();
+    modalInput.focus();
+    cell.classList.add('highlight');
+  });
+});
+
+// Save modal data to cell
+var modalSaveButton = document.querySelector('.modal-close');
+modalSaveButton.addEventListener('click', function() {
+  var modalInput = document.getElementById('modal-input');
+  var activeCell = document.querySelector('.editable-cell.highlight');
+  if (activeCell) {
+    activeCell.innerText = modalInput.value;
+    activeCell.classList.remove('highlight');
+    modalInput.value = "";
+  }
+});
+
+// Highlight cell on focus
+cells.forEach(function(cell) {
+  cell.addEventListener('focus', function() {
+    cell.classList.add('highlight');
+  });
+  cell.addEventListener('blur', function() {
+    cell.classList.remove('highlight');
+  });
+});
+
+var today = new Date();
+var todayElement = document.getElementById('today');
+todayElement.innerText = today.toLocaleDateString();
+
+// Print button functionality
+var printButton = document.getElementById('print-button');
+var watermark = document.querySelector('.watermark');
+printButton.addEventListener('click', function() {
+  printButton.style.display = 'none';
+  watermark.style.display = 'block';
+  window.print();
+  printButton.style.display = 'block';
+  watermark.style.display = 'none';
+});
+</script>
+</body>
+</html>
