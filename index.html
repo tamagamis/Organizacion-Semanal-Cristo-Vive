@@ -135,11 +135,53 @@
         <button id="print-button">Imprimir Organización Semanal</button>
         <div class="watermark">Iglesia Cristo Vive</div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
+          // Initialize modal
+          document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+          });
+        
+          // Open modal on cell click
+          var cells = document.querySelectorAll('.editable-cell');
+          cells.forEach(function(cell) {
+            cell.addEventListener('click', function() {
+              var modalInput = document.getElementById('modal-input');
+              modalInput.value = cell.innerText;
+              var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
+              modalInstance.open();
+              modalInput.focus();
+              cell.classList.add('highlight');
+            });
+          });
+        
+          // Save modal data to cell
+          var modalSaveButton = document.querySelector('.modal-close');
+          modalSaveButton.addEventListener('click', function() {
+            var modalInput = document.getElementById('modal-input');
+            var activeCell = document.querySelector('.editable-cell.highlight');
+            if (activeCell) {
+              activeCell.innerText = modalInput.value;
+              activeCell.classList.remove('highlight');
+              modalInput.value = "";
+            }
+          });
+        
+          // Highlight cell on focus
+          cells.forEach(function(cell) {
+            cell.addEventListener('focus', function() {
+              cell.classList.add('highlight');
+            });
+            cell.addEventListener('blur', function() {
+              cell.classList.remove('highlight');
+            });
+          });
+        
           var todayElement = document.getElementById('today');
           var today = new Date();
           todayElement.textContent = 'Es: ' + today.toLocaleDateString();
-
+        
           // Print button functionality
           var printButton = document.getElementById('print-button');
           var watermark = document.querySelector('.watermark');
@@ -151,6 +193,7 @@
             watermark.style.display = 'none';
           });
         </script>
+        
       </body>
       </html>
 
