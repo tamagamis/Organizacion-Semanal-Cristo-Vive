@@ -39,10 +39,6 @@
         text-align: center;
         background-color: #f2f2f2;
     }
-    
-    .first-column td {
-        width: 20%;
-    }
 
     .modal {
       width: 75% !important;
@@ -59,7 +55,13 @@
   <h2>Responsabilidades de Líderes</h2>
   <h3>Archivo Generado el día:</h3>
   <h3 id="today"></h3>
-  <p>Bienvenidos al Servicios de Programación de Responsabilidades de Líderes</p>
+
+  <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <strong>Welcome to Leaders Responsibilities Programming Services!</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 
   <div class="table-responsive">
     <table>
@@ -73,7 +75,6 @@
         </tr>
       </thead>
       <tbody>
-        <th class="center-align">Listado</th>
         <tr>
           <td class="center-align">Fecha del Servicio</td>
           <td contenteditable="true"></td>
@@ -98,7 +99,7 @@
         <tr>
           <td class="center-align">Meditación de la Palabra</td>
           <td contenteditable="true"></td>
-          <tdcontenteditable="true"></td>
+          <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           <td contenteditable="true"></td>
           </tr>
@@ -128,8 +129,8 @@
           
             </div>
             <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado.</p>
-            <p>&copy; Equipo Cristo Vive Multimedia Confidencial 🔒V 2.2.2.1</p>
-            <button id="print-button">🗂️Imprimir PDF - Organización Semanal </button>
+            <p>&copy; Equipo Cristo Vive Multimedia Confidencial 🔒V2.2.2.5</p>
+          <button id="print-button">🗂️Imprimir PDF - Organización Semanal </button>
             <div class="watermark">Iglesia Cristo Vive</div>
             <!-- Modal Structure -->
             <div id="data-modal" class="modal">
@@ -170,6 +171,7 @@ modalSaveButton.addEventListener('click', function() {
   var activeCell = document.querySelector('td[contenteditable="true"]:focus');
   if (activeCell) {
     activeCell.innerText = modalInput.value;
+    activeCell.blur();
   }
 });
 
@@ -181,13 +183,12 @@ todayElement.textContent = 'Fecha actual: ' + today.toLocaleDateString();
 // Print button functionality
 var printButton = document.getElementById('print-button');
 var watermark = document.querySelector('.watermark');
-
 printButton.addEventListener('click', function() {
   printButton.style.display = 'none';
   watermark.style.display = 'block';
-window.print();
-printButton.style.display = 'block';
-watermark.style.display = 'none';
+  window.print();
+  printButton.style.display = 'block';
+  watermark.style.display = 'none';
 });
 </script>
 </body>
