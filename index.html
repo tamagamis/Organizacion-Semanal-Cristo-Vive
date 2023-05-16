@@ -10,56 +10,59 @@
     header {
       text-align: center;
     }
+    
     header img {
-  width: 100px;
-  height: auto;
-}
+      width: 100px;
+      height: auto;
+    }
+    
+    h1, h2, h3 {
+      text-align: center;
+      font-size: 18px;
+    }
 
-h1, h2, h3 {
-  text-align: center;
-  font-size: 18px;
-}
+    .table-responsive {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    table td, table th {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+      background-color: #f2f2f2;
+    }
 
-.table-responsive {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
+    .modal {
+      width: 75% !important;
+      max-height: 90% !important;
+    }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+    }
 
-table td, table th {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: center;
-  background-color: #f2f2f2;
-}
-
-.modal {
-  width: 75% !important;
-  max-height: 90% !important;
-}
-
-.footer {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.highlight {
-  background-color: #ffeeba !important;
-}
-</style>
+    .highlight {
+      background-color: #ffeeba !important;
+    }
+  </style>
 </head>
 <body>
   <header>
     <img src="https://i.ibb.co/YLLzsJ8/tcvl-121x107.webp" alt="tcvl-121x107" border="0">
   </header>
+
   <h1>Organización Semanal - Cristo Vive</h1>
   <h2>Responsabilidades de Líderes</h2>
+
   <div class="table-responsive">
     <table>
       <thead>
@@ -101,61 +104,59 @@ table td, table th {
           <td class="editable-cell"></td>
         </tr>
         <tr>
-          <td
-class="center-align">Actividad adicional</td>
-<td class="editable-cell"></td>
-<td class="editable-cell"></td>
-<td class="editable-cell"></td>
-<td class="editable-cell"></td>
-</tr>
-<tr>
-<td class="center-align">Actividad extraordinaria</td>
-<td class="editable-cell"></td>
-<td class="editable-cell"></td>
-<td class="editable-cell"></td>
-<td class="editable-cell"></td>
-</tr>
-<tr>
-<td class="center-align">Horario</td>
-<td class="editable-cell"></td>
-<td class="editable-cell"></td>
-<td class="editable-cell"></td>
-<td class="editable-cell"></td>
-</tr>
-</tbody>
-</table>
+        <td class="center-align">Actividad adicional</td>
+        <td class="editable-cell"></td>
+        <td class="editable-cell"></td>
+        <td class="editable-cell"></td>
+        <td class="editable-cell"></td>
+        </tr>
+        <tr>
+        <td class="center-align">Actividad extraordinaria</td>
+        <td class="editable-cell"></td>
+        <td class="editable-cell"></td>
+        <td class="editable-cell"></td>
+        <td class="editable-cell"></td>
+        </tr>
+        <tr>
+        <td class="center-align">Horario</td>
+        <td class="editable-cell"></td>
+        <td class="editable-cell"></td>
+        <td class="editable-cell"></td>
+        <td class="editable-cell"></td>
+        </tr>
+        </tbody>
+        </table>
+    </div>
+    <div class="footer">
+      <p>Fecha del archivo generado: <span id="today"></span></p>
+    </div>
+    <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado."</p>
+    <p>&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V7 </p>
+    <button id="print-button">Imprimir Organización Semanal</button>
 
-  </div>
-  <div class="footer">
-    <p>Fecha del archivo generado: <span id="today"></span></p>
-  </div>
-  <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado."</p>
-  <p>&copy; Equipo 💚 Cristo Vive Multimedia Confidencial ,V4 </p>
-  <button id="print-button">Imprimir Organización Semanal</button>
-  <div class="watermark">Iglesia Cristo Vive</div>
-  <!-- Modal Structure -->
-  <div id="data-modal" class="modal">
-    <div class="modal-content">
-      <h4>Ingresar Los datos Adecuados😎</h4>
-      <div class="input-field">
-        <input id="modal-input" type="text" class="validate">
-        <label for="modal-input">servidor de datos activo✅ : estamos trabajando para usted⚙️</label>
+    <div class="watermark">Iglesia Cristo Vive</div>
+    <!-- Modal Structure -->
+    <div id="data-modal" class="modal">
+      <div class="modal-content">
+        <h4>Ingresar los datos adecuados 😎</h4>
+        <div class="input-field">
+          <input id="modal-input" type="text" class="validate">
+          <label for="modal-input">Servidor de datos activo ✅: estamos trabajando para usted ⚙️</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
       </div>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
-    </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>
-    // Initialize modal
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.modal');
-      var instances = M.Modal.init(elems);
-    });
-
-    // Open modal on cell click
-    var cells = document.querySelectorAll('.editable-cell');
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      // Initialize modal
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems);
+      });
+   // Open modal on cell click
+   var cells = document.querySelectorAll('.editable-cell');
     cells.forEach(function(cell) {
       cell.addEventListener('click', function() {
         var modalInput = document.getElementById('modal-input');
@@ -178,7 +179,7 @@ class="center-align">Actividad adicional</td>
         modalInput.value = "";
       }
     });
-    
+
     // Highlight cell on focus
     cells.forEach(function(cell) {
       cell.addEventListener('focus', function() {
@@ -188,52 +189,9 @@ class="center-align">Actividad adicional</td>
         cell.classList.remove('highlight');
       });
     });
-
-    // Generate and display today's date
-    var today = new Date();
-    var today
-Element = document.getElementById('today');
+var today = new Date();
+var todayElement = document.getElementById('today');
 todayElement.innerText = today.toLocaleDateString();
-// Disable right-click
-document.addEventListener('contextmenu', function(e) {
-  e.preventDefault();
-});
-
-// Disable screenshot capture
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'PrintScreen') {
-    e.preventDefault();
-  }
-});
-
-// Populate dropdown lists for month and day
-var monthDropdown = document.createElement('select');
-var dayDropdown = document.createElement('select');
-var months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-var days = [];
-for (var i = 1; i <= 31; i++) {
-  days.push(i);
-}
-months.forEach(function(month) {
-  var option = document.createElement('option');
-  option.value = month;
-  option.text = month;
-  monthDropdown.appendChild(option);
-});
-days.forEach(function(day) {
-  var option = document.createElement('option');
-  option.value = day;
-  option.text = day;
-  dayDropdown.appendChild(option);
-});
-var dateCells = document.querySelectorAll('.editable-cell:first-child');
-dateCells.forEach(function(cell) {
-  var dropdowns = document.createElement('div');
-  dropdowns.appendChild(monthDropdown.cloneNode(true));
-  dropdowns.appendChild(dayDropdown.cloneNode(true));
-  cell.appendChild(dropdowns);
-});
-
 // Print button functionality
 var printButton = document.getElementById('print-button');
 var watermark = document.querySelector('.watermark');
