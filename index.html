@@ -97,11 +97,11 @@
           <td class="editable-cell"></td>
         </tr>
         <tr>
-          <td class="center-align">Meditación de la Palabra</td>
-          <td class="editable-cell"></td>
-          <td class="editable-cell"></td>
-          <td class="editable-cell"></td>
-          <td class="editable-cell"></td>
+        <td class="center-align">Meditación de la Palabra</td>
+        <td class="editable-cell"></td>
+        <td class="editable-cell"></td>
+        <td class="editable-cell"></td>
+        <td class="editable-cell"></td>
         </tr>
         <tr>
         <td class="center-align">Actividad adicional</td>
@@ -126,82 +126,150 @@
         </tr>
         </tbody>
         </table>
-    </div>
-    <div class="footer">
-      <p>Fecha del archivo generado: <span id="today"></span></p>
-    </div>
-    <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado."</p>
-    <p>&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V7 </p>
-    <button id="print-button">Imprimir Organización Semanal</button>
-
-    <div class="watermark">Iglesia Cristo Vive</div>
-    <!-- Modal Structure -->
-    <div id="data-modal" class="modal">
-      <div class="modal-content">
-        <h4>Ingresar los datos adecuados 😎</h4>
-        <div class="input-field">
-          <input id="modal-input" type="text" class="validate">
-          <label for="modal-input">Servidor de datos activo ✅: estamos trabajando para usted ⚙️</label>
         </div>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
-      </div>
+        <div class="footer">
+        <p>Fecha del archivo generado: <span id="today"></span></p>
+        </div>
+        <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado."</p>
+        <p>© Equipo 💚 Cristo Vive Multimedia Confidencial, V7 </p>
+        <label for="month-select">Seleccionar Mes:</label>
+<select id="month-select">
+  <option value="1">Enero</option>
+  <option value="2">Febrero</option>
+  <option value="3">Marzo</option>
+  <option value="4">Abril</option>
+  <option value="5">Mayo</option>
+  <option value="6">Junio</option>
+  <option value="7">Julio</option>
+  <option value="8">Agosto</option>
+  <option value="9">Septiembre</option>
+  <option value="10">Octubre</option>
+  <option value="11">Noviembre</option>
+  <option value="12">Diciembre</option>
+</select>
+
+<label for="day-select">Seleccionar Día:</label>
+<select id="day-select">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+  <option value="24">24</option>
+  <option value="25">25</option>
+  <option value="26">26</option>
+  <option value="27">27</option>
+  <option value="28">28</option>
+  <option value="29">29</option>
+  <option value="30">30</option>
+  <option value="31">31</option>
+  </select>
+  20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+<button id="print-button">Imprimir Organización Semanal</button>
+
+<div class="watermark">Iglesia Cristo Vive</div>
+<!-- Modal Structure -->
+<div id="data-modal" class="modal">
+  <div class="modal-content">
+    <h4>Ingresar los datos adecuados 😎</h4>
+    <div class="input-field">
+      <input id="modal-input" type="text" class="validate">
+      <label for="modal-input">Servidor de datos activo ✅: estamos trabajando para usted ⚙️</label>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-      // Initialize modal
-      document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.modal');
-        var instances = M.Modal.init(elems);
-      });
-   // Open modal on cell click
-   var cells = document.querySelectorAll('.editable-cell');
-    cells.forEach(function(cell) {
-      cell.addEventListener('click', function() {
-        var modalInput = document.getElementById('modal-input');
-        modalInput.value = cell.innerText;
-        var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
-        modalInstance.open();
-        modalInput.focus();
-        cell.classList.add('highlight');
-      });
-    });
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  // Initialize modal
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+  });
 
-    // Save modal data to cell
-    var modalSaveButton = document.querySelector('.modal-close');
-    modalSaveButton.addEventListener('click', function() {
+  // Open modal on cell click
+  var cells = document.querySelectorAll('.editable-cell');
+  cells.forEach(function(cell) {
+    cell.addEventListener('click', function() {
       var modalInput = document.getElementById('modal-input');
-      var activeCell = document.querySelector('.editable-cell.highlight');
-      if (activeCell) {
-        activeCell.innerText = modalInput.value;
-        activeCell.classList.remove('highlight');
-        modalInput.value = "";
-      }
+      modalInput.value = cell.innerText;
+      var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
+      modalInstance.open();
+      modalInput.focus();
+      cell.classList.add('highlight');
     });
+  });
 
-    // Highlight cell on focus
-    cells.forEach(function(cell) {
-      cell.addEventListener('focus', function() {
-        cell.classList.add('highlight');
-      });
-      cell.addEventListener('blur', function() {
-        cell.classList.remove('highlight');
-      });
+  // Save modal data to cell
+  var modalSaveButton = document.querySelector('.modal-close');
+  modalSaveButton.addEventListener('click', function() {
+    var modalInput = document.getElementById('modal-input');
+    var activeCell = document.querySelector('.editable-cell.highlight');
+    if (activeCell) {
+      activeCell.innerText = modalInput.value;
+      activeCell.classList.remove('highlight');
+      modalInput.value = "";
+    }
+  });
+
+  // Highlight cell on focus
+  cells.forEach(function(cell) {
+    cell.addEventListener('focus', function() {
+      cell.classList.add('highlight');
     });
-var today = new Date();
-var todayElement = document.getElementById('today');
-todayElement.innerText = today.toLocaleDateString();
-// Print button functionality
-var printButton = document.getElementById('print-button');
-var watermark = document.querySelector('.watermark');
-printButton.addEventListener('click', function() {
-  printButton.style.display = 'none';
-  watermark.style.display = 'block';
-  window.print();
-  printButton.style.display = 'block';
-  watermark.style.display = 'none';
-});
+    cell.addEventListener('blur', function() {
+      cell.classList.remove('highlight');
+    });
+  });
+
+  // Get current date and display
+  var today = new Date();
+  var todayElement = document.getElementById('today');
+  todayElement.innerText = today.toLocaleDateString();
+
+  // Print button functionality
+  var printButton = document.getElementById('print-button');
+  var watermark = document.querySelector('.watermark');
+  printButton.addEventListener('click', function() {
+    printButton.style.display = 'none';
+    watermark.style.display = 'block';
+    window.print();
+    printButton.style.display = 'block';
+    watermark.style.display = 'none';
+  });
 </script>
 </body>
 </html>
+
