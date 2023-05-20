@@ -175,9 +175,14 @@
       pointer-events: none;
       z-index: -1;
     }
+        /* Nuevos estilos para mostrar el contenido después de la carga */
+        #myDiv {
+      display: none;
+    }
   </style>
 </head>
 <body>
+  <div id="myDiv">
   <header>
     <img src="https://i.ibb.co/YLLzsJ8/tcvl-121x107.webp" alt="tcvl-121x107" border="0">
   </header>
@@ -342,6 +347,7 @@
       var content = document.getElementById("myDiv");
       setTimeout(function() {
         loader.classList.add("animate-bottom");
+        loader.style.display = "none";
         content.style.display = "block";
       }, 2000);
     });
