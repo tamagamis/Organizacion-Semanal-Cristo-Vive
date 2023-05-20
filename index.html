@@ -314,12 +314,13 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
-document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
       var elems = document.querySelectorAll(".modal");
       M.Modal.init(elems);
-
+  
       var printButton = document.getElementById('print-button');
       printButton.style.display = 'none';
+  
       var modalSaveButton = document.querySelector('.modal-close');
       modalSaveButton.addEventListener('click', function() {
         var modalInput = document.getElementById('modal-input');
@@ -327,13 +328,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (activeCell) {
           activeCell.innerText = modalInput.value;
           activeCell.classList.remove('highlight');
-          activeCell.classList.remove('error'); // Remove the error class if the cell was previously marked as error
+          activeCell.classList.remove('error');
           modalInput.value = "";
         }
-        checkMissingData(); // Check for missing data after saving
+        checkMissingData();
       });
-
-      // Abre el modal al hacer clic en una celda
+  
       var cells = document.querySelectorAll('.editable-cell');
       cells.forEach(function(cell) {
         cell.addEventListener('click', function() {
@@ -345,31 +345,7 @@ document.addEventListener("DOMContentLoaded", function() {
           cell.classList.add('highlight');
         });
       });
-
-    // Save modal data to cell
-    var cells = document.querySelectorAll('.editable-cell');
-      cells.forEach(function(cell) {
-        cell.addEventListener('click', function() {
-          var modalInput = document.getElementById('modal-input');
-          modalInput.value = cell.innerText;
-          var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
-          modalInstance.open();
-          modalInput.focus();
-          cell.classList.add('highlight');
-        });
-      });
-
-      // Save modal data to cell
-      var modalSaveButton = document.querySelector('.modal-close');
-      modalSaveButton.addEventListener('click', function() {
-        var modalInput = document.getElementById('modal-input');
-        var activeCell = document.querySelector('.editable-cell.highlight');
-        if (activeCell) {
-          activeCell.innerText = modalInput.value;
-          activeCell.classList.remove('highlight');
-          modalInput.value = "";
-        }
-      });
+  
       function checkMissingData() {
         var cells = document.querySelectorAll('.editable-cell');
         cells.forEach(function(cell) {
@@ -380,34 +356,33 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         });
       }
-
-      // Initial check for missing data
+  
       checkMissingData();
-    });
-    var today = new Date();
-    var todayElement = document.getElementById('today');
-    todayElement.innerText = today.toLocaleDateString();
-
-    // Print button functionality
-    var printButton = document.getElementById('print-button');
+  
+      var today = new Date();
+      var todayElement = document.getElementById('today');
+      todayElement.innerText = today.toLocaleDateString();
+  
+      var printButton = document.getElementById('print-button');
       var watermark = document.querySelector('.watermark');
       printButton.addEventListener('click', function() {
         printButton.style.display = 'none';
-        watermark.style.display = 'none'; // Hide the watermark when printing
+        watermark.style.display = 'none';
         window.print();
         printButton.style.display = 'block';
-        watermark.style.display = 'block'; // Show the watermark again after printing
+        watermark.style.display = 'block';
       });
+  
       var loader = document.getElementById("loader");
       var content = document.getElementById("myDiv");
       setTimeout(function() {
         loader.classList.add("animate-bottom");
         loader.style.display = "none";
         content.style.display = "block";
-        printButton.style.display = 'block'; // Show the print button after the content is loaded
+        printButton.style.display = 'block';
       }, 2000);
-});
-</script>
+    });
+  </script>  
 <p style="font-size: 12px; opacity: 0.5; text-align: center;">Este documento ha sido aprobado por el departamento de multimedia para su uso</p>
 </body>
 </html>
