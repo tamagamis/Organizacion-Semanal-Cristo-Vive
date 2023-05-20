@@ -125,6 +125,23 @@
     table td:hover {
       background-color: #f8f8f8;
     }
+
+    /* Custom styles */
+    .watermark {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 48px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.1);
+      pointer-events: none;
+      z-index: -1;
+    }
   </style>
 </head>
 <body>
@@ -205,7 +222,7 @@
   </div>
 
   <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado."</p>
-  <p>&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V11 Estable</p>
+  <p>&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V12 Estable</p>
 
   <div>
     <button id="print-button" class="custom-button">Imprimir Organización Semanal</button>
@@ -225,6 +242,10 @@
     <div class="modal-footer">
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
     </div>
+  </div>
+
+  <div class="progress-wrapper">
+    <div class="progress"></div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -283,6 +304,16 @@
       window.print();
       printButton.style.display = 'block';
       watermark.style.display = 'block'; // Show the watermark again after printing
+    });
+
+    // Show loading spinner on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      var progressWrapper = document.querySelector('.progress-wrapper');
+      progressWrapper.style.display = 'flex';
+
+      setTimeout(function() {
+        progressWrapper.style.display = 'none';
+      }, 2000);
     });
   </script>
 </body>
