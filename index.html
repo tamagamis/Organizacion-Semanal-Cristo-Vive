@@ -277,18 +277,16 @@
     </div>
   </div>
 
-  <div class="progress-wrapper">
+  <div id="loader" class="progress-wrapper">
     <div class="progress"></div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
-    // Initialize modal
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.modal');
-      var instances = M.Modal.init(elems);
+    document.addEventListener("DOMContentLoaded", function() {
+      var elems = document.querySelectorAll(".modal");
+      M.Modal.init(elems);
     });
-
     // Open modal on cell click
     var cells = document.querySelectorAll('.editable-cell');
     cells.forEach(function(cell) {
