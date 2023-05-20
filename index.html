@@ -70,9 +70,9 @@
       background-color: #dcdcdc;
     }
 
-    /* Background gradients */
+    /* Background color */
     body {
-      background: linear-gradient(to bottom right, #92fe9d, #00c9ff);
+      background-color: #92fe9d;
     }
 
     /* Loading movements */
@@ -270,10 +270,10 @@
     var watermark = document.querySelector('.watermark');
     printButton.addEventListener('click', function() {
       printButton.style.display = 'none';
-      watermark.style.display = 'block';
+      watermark.style.display = 'none'; // Hide the watermark when printing
       window.print();
       printButton.style.display = 'block';
-      watermark.style.display = 'none';
+      watermark.style.display = 'block'; // Show the watermark again after printing
     });
   </script>
 </body>
