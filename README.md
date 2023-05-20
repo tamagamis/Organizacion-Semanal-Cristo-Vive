@@ -1,4 +1,4 @@
-# Organización Semanal - Cristo Vive
+# Organización Semanal - Cristo Vive (Administrador)
 
 Este proyecto es una plantilla HTML para organizar la programación semanal de un evento en la iglesia Cristo Vive. Proporciona una tabla editable donde se pueden ingresar las responsabilidades de los líderes para cada día de la semana.
 
