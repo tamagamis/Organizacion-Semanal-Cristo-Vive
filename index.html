@@ -179,6 +179,16 @@
         #myDiv {
       display: none;
     }
+    /* Estilo del botón */
+    .custom-button {
+      font-size: 12px;
+      opacity: 0.7;
+    }
+    
+    /* Ocultar el botón al cargar la página */
+    .hide-on-load {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -290,9 +300,12 @@
     document.addEventListener("DOMContentLoaded", function() {
       var elems = document.querySelectorAll(".modal");
       M.Modal.init(elems);
-    });
-    var printButton = document.getElementById('print-button');
-  printButton.style.display = 'none';
+
+      var printButton = document.getElementById('print-button');
+      printButton.style.display = 'none';
+      window.addEventListener("load", function() {
+        printButton.style.display = 'block';
+      });
     // Open modal on cell click
     var cells = document.querySelectorAll('.editable-cell');
     cells.forEach(function(cell) {
@@ -351,20 +364,12 @@
         loader.style.display = "none";
         content.style.display = "block";
       }, 2000);
+      window.addEventListener("load", function() {
+    printButton.style.display = 'block';
+  });
+});
     });
-  </script>
-  <style>
-    /* Estilo del botón */
-    .custom-button {
-      font-size: 12px;
-      opacity: 0.7;
-    }
-    
-    /* Ocultar el botón al cargar la página */
-    .hide-on-load {
-      display: none;
-    }
-  </style>
-</body>
+</script>
 <p style="font-size: 12px; opacity: 0.5; text-align: center;">Este documento ha sido aprobado por el departamento de multimedia para su uso</p>
+</body>
 </html>
