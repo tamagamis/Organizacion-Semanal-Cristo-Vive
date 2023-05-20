@@ -64,7 +64,9 @@
     .highlight {
       background-color: #e67c52 !important;
     }
-
+    .editable-cell.error {
+      background-color: #f5ff64;
+    }
     /* Improved button styling */
     .custom-button {
       border: 2px solid #000;
@@ -318,6 +320,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
       var printButton = document.getElementById('print-button');
       printButton.style.display = 'none';
+      var modalSaveButton = document.querySelector('.modal-close');
+      modalSaveButton.addEventListener('click', function() {
+        var modalInput = document.getElementById('modal-input');
+        var activeCell = document.querySelector('.editable-cell.highlight');
+        if (activeCell) {
+          activeCell.innerText = modalInput.value;
+          activeCell.classList.remove('highlight');
+          activeCell.classList.remove('error'); // Remove the error class if the cell was previously marked as error
+          modalInput.value = "";
+        }
+        checkMissingData(); // Check for missing data after saving
+      });
 
       // Abre el modal al hacer clic en una celda
       var cells = document.querySelectorAll('.editable-cell');
@@ -356,7 +370,20 @@ document.addEventListener("DOMContentLoaded", function() {
           modalInput.value = "";
         }
       });
+      function checkMissingData() {
+        var cells = document.querySelectorAll('.editable-cell');
+        cells.forEach(function(cell) {
+          if (cell.innerText.trim() === "") {
+            cell.classList.add('error');
+          } else {
+            cell.classList.remove('error');
+          }
+        });
+      }
 
+      // Initial check for missing data
+      checkMissingData();
+    });
     var today = new Date();
     var todayElement = document.getElementById('today');
     todayElement.innerText = today.toLocaleDateString();
