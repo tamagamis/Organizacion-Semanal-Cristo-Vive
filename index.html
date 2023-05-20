@@ -67,8 +67,20 @@
       background-color: #e67c52 !important;
     }
     .editable-cell.error {
-      background-color: #f5ff64;
-    }
+  background-color: #f5ff64;
+  position: relative;
+}
+
+.editable-cell.error::after {
+  content: "Falta información";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: red;
+}
+
     /* Improved button styling */
     .custom-button {
       border: 2px solid #000;
@@ -388,18 +400,14 @@
   });
 
   if (hasMissingData) {
-    M.toast({html: 'Por favor, ingrese toda la información requerida'});
+    M.toast({html: 'Para Generar este documento debe llenar todo'});
   } else {
-    // Ejecutar la acción deseada aquí, en lugar de mostrar un toast
-    // Por ejemplo, guardar la organización o realizar alguna otra operación
     executeAction();
   }
 }
 
 function executeAction() {
-  // Aquí puedes realizar la acción deseada al hacer clic en el botón
-  // Por ejemplo, guardar la organización o realizar alguna otra operación
-  M.toast({html: 'Organización guardada correctamente'});
+  M.toast({html: 'Informacion Aprobada'});
 }
       var today = new Date();
       var todayElement = document.getElementById('today');
