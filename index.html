@@ -319,7 +319,20 @@ document.addEventListener("DOMContentLoaded", function() {
       });
 
     // Save modal data to cell
-    var modalSaveButton = document.querySelector('.modal-close');
+    var cells = document.querySelectorAll('.editable-cell');
+      cells.forEach(function(cell) {
+        cell.addEventListener('click', function() {
+          var modalInput = document.getElementById('modal-input');
+          modalInput.value = cell.innerText;
+          var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
+          modalInstance.open();
+          modalInput.focus();
+          cell.classList.add('highlight');
+        });
+      });
+
+      // Save modal data to cell
+      var modalSaveButton = document.querySelector('.modal-close');
       modalSaveButton.addEventListener('click', function() {
         var modalInput = document.getElementById('modal-input');
         var activeCell = document.querySelector('.editable-cell.highlight');
@@ -330,42 +343,28 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
 
-    // Highlight cell on focus
-    cells.forEach(function(cell) {
-      cell.addEventListener('focus', function() {
-        cell.classList.add('highlight');
-      });
-      cell.addEventListener('blur', function() {
-        cell.classList.remove('highlight');
-      });
-    });
-
     var today = new Date();
     var todayElement = document.getElementById('today');
     todayElement.innerText = today.toLocaleDateString();
 
     // Print button functionality
     var printButton = document.getElementById('print-button');
-    var watermark = document.querySelector('.watermark');
-    printButton.addEventListener('click', function() {
-      printButton.style.display = 'none';
-      watermark.style.display = 'none'; // Hide the watermark when printing
-      window.print();
-      printButton.style.display = 'block';
-      watermark.style.display = 'block'; // Show the watermark again after printing
-    });
-
-    window.addEventListener("load", function() {
+      var watermark = document.querySelector('.watermark');
+      printButton.addEventListener('click', function() {
+        printButton.style.display = 'none';
+        watermark.style.display = 'none'; // Hide the watermark when printing
+        window.print();
+        printButton.style.display = 'block';
+        watermark.style.display = 'block'; // Show the watermark again after printing
+      });
       var loader = document.getElementById("loader");
       var content = document.getElementById("myDiv");
       setTimeout(function() {
         loader.classList.add("animate-bottom");
         loader.style.display = "none";
         content.style.display = "block";
+        printButton.style.display = 'block'; // Show the print button after the content is loaded
       }, 2000);
-      window.addEventListener("load", function() {
-    printButton.style.display = 'block';
-  });
 });
     });
 </script>
