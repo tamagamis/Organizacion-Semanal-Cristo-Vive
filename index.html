@@ -362,7 +362,7 @@
       function validateData() {
   var cells = document.querySelectorAll('.editable-cell');
   var hasMissingData = false;
-  
+
   cells.forEach(function(cell) {
     if (cell.innerText.trim() === "") {
       cell.classList.add('error');
@@ -371,14 +371,21 @@
       cell.classList.remove('error');
     }
   });
-  
+
   if (hasMissingData) {
     M.toast({html: 'Por favor, ingrese toda la información requerida'});
   } else {
-    M.toast({html: 'Organización guardada correctamente'});
+    // Ejecutar la acción deseada aquí, en lugar de mostrar un toast
+    // Por ejemplo, guardar la organización o realizar alguna otra operación
+    executeAction();
   }
 }
 
+function executeAction() {
+  // Aquí puedes realizar la acción deseada al hacer clic en el botón
+  // Por ejemplo, guardar la organización o realizar alguna otra operación
+  M.toast({html: 'Organización guardada correctamente'});
+}
       var today = new Date();
       var todayElement = document.getElementById('today');
       todayElement.innerText = today.toLocaleDateString();
