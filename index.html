@@ -55,9 +55,6 @@
       width: 75% !important;
       max-height: 75% !important;
     }
-    .hide {
-  display: none;
-}
     .footer {
       text-align: center;
       margin-top: 20px;
@@ -136,6 +133,32 @@
       animation: spin 2s linear infinite;
     }
 
+    .fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+    .blink {
+  animation: blink 1s infinite;
+}
+    @keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
