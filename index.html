@@ -260,10 +260,9 @@
   </div>
   <p style="font-size: 12px; opacity: 0.5; text-align: center;">Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado.</p>
   <p style="font-size: 12px; opacity: 0.5; text-align: center;">&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V12 Estable</p>
-</div>
-
-  <button id="print-button" class="custom-button">Imprimir Organización Semanal</button>
-</div>
+  <div>
+    <button id="print-button" class="custom-button hide-on-load">Imprimir Organización Semanal</button>
+  </div>
 
 
   <div class="watermark">Iglesia Cristo Vive</div>
@@ -292,6 +291,8 @@
       var elems = document.querySelectorAll(".modal");
       M.Modal.init(elems);
     });
+    var printButton = document.getElementById('print-button');
+  printButton.style.display = 'none';
     // Open modal on cell click
     var cells = document.querySelectorAll('.editable-cell');
     cells.forEach(function(cell) {
@@ -352,6 +353,18 @@
       }, 2000);
     });
   </script>
+  <style>
+    /* Estilo del botón */
+    .custom-button {
+      font-size: 12px;
+      opacity: 0.7;
+    }
+    
+    /* Ocultar el botón al cargar la página */
+    .hide-on-load {
+      display: none;
+    }
+  </style>
 </body>
 <p style="font-size: 12px; opacity: 0.5; text-align: center;">Este documento ha sido aprobado por el departamento de multimedia para su uso</p>
 </html>
