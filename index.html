@@ -95,16 +95,49 @@
       animation: spin 1s ease-in-out infinite;
     }
 
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+   /* Estilos para la carga inicial */
+#loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 0 -60px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estilos para la animación de carga */
+.animate-bottom {
+  position: relative;
+  animation-name: animatebottom;
+  animation-duration: 1s;
+}
+
+@keyframes animatebottom {
+  from { bottom: -100px; opacity: 0; }
+  to { bottom: 0; opacity: 1; }
+}
+
+/* Mostrar el contenido después de la carga */
+#myDiv {
+  display: none;
+  text-align: center;
+}
 
     /* Futuristic table style */
     table {
       border-collapse: collapse;
       width: 100%;
-      font-family: Arial, sans-serif;
+      font-family: Tahoma;
     }
 
     table td, table th {
@@ -149,7 +182,7 @@
     <img src="https://i.ibb.co/YLLzsJ8/tcvl-121x107.webp" alt="tcvl-121x107" border="0">
   </header>
 
-  <h1 style="background-color: #ff9a9e; padding: 10px;">Organización Semanal - Cristo Vive</h1>
+  <h1 style="background-color: #ffffff; padding: 10px;">Organización Semanal - Cristo Vive</h1>
   <h2>Responsabilidades de Líderes de la Iglesia Cristo Vive</h2>
 
   <div class="table-responsive">
@@ -317,4 +350,5 @@
     });
   </script>
 </body>
+<p style="font-size: 12px; opacity: 0.5; text-align: center;">Este documento ha sido aprobado por el departamento de multimedia para su uso</p>
 </html>
