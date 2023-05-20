@@ -136,6 +136,32 @@
       animation: spin 2s linear infinite;
     }
 
+    .fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+    .blink {
+  animation: blink 1s infinite;
+}
+    @keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -299,7 +325,7 @@
     <p style="font-size: 12px; opacity: 0.5; text-align: center;">Fecha del archivo generado: <span id="today"></span></p>
 </div>
   <p style="font-size: 12px; opacity: 0.5; text-align: center;">Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado.</p>
-  <p style="font-size: 12px; opacity: 0.5; text-align: center;">&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V12 Estable</p>
+  <p style="font-size: 12px; opacity: 0.5; text-align: center;">&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V13 </p>
   
   <div style="display: flex; justify-content: center;">
     <button id="print-button" class="custom-button hide-on-load">Guardar Organización</button>
@@ -318,7 +344,7 @@
       </div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ingresar datos</a>
+      <a href="#!" class="btn waves-effect waves-teal">Ingresar datos</a>
     </div>
   </div>
 
