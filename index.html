@@ -10,7 +10,8 @@
     header {
       text-align: center;
     }
-    header img {
+    
+    header svg {
       width: 100px;
       height: auto;
     }
@@ -52,11 +53,63 @@
     .highlight {
       background-color: #ffeeba !important;
     }
+
+    /* CSS animations */
+    .rotate {
+      animation: rotate 4s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Improved button styling */
+    .custom-button {
+      border: 2px solid #000;
+      padding: 10px 20px;
+      background-color: #f2f2f2;
+      color: #000;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease;
+    }
+
+    .custom-button:hover {
+      background-color: #dcdcdc;
+    }
+
+    /* Background gradients */
+    header {
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #92fe9d, #00c9ff);
+    }
+
+    /* Loading movements */
+    .spinner {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(0, 0, 0, 0.3);
+      border-top-color: #000;
+      border-radius: 50%;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://i.ibb.co/YLLzsJ8/tcvl-121x107.webp" alt="tcvl-121x107" border="0">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 121 107">
+      <path d="M60.5 0C27.099 0 0 21.49 0 48c0 13.251 6.68 25.008 16.846 32.11l-.014.036C27.512 86.406 43.333 94 60.5 94c17.168 0 32.988-7.594 43.668-13.854l-.014-.036C114.32 73.008 121 61.251 121 48 121 21.49 93.901 0 60.5 0zm0 79C35.95 79 16 59.05 16 34.5S35.95 0 60.5 0 105 19.95 105 44.5 85.05 89 60.5 89zm1-75c-11.045 0-20 8.954-20 20 0 11.046 8.955 20 20 20s20-8.954 20-20c0-11.046-8.955-20-20-20z"/>
+    </svg>
   </header>
 
   <h1>Organización Semanal - Cristo Vive</h1>
@@ -101,109 +154,116 @@
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
           <td class="center-align">Actividad adicional</td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
           <td class="center-align">Actividad extraordinaria</td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
           <td class="center-align">Horario</td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
-          </tr>
-          </tbody>
-          </table>
-        </div>
-        <div class="footer">
-          <p>Fecha del archivo generado: <span id="today"></span></p>
-        </div>
-        <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado."</p>
-        <p>&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V7 </p>
-        <div>
-        </div>
-        <button id="print-button">Imprimir Organización Semanal</button>
-        <div class="watermark">Iglesia Cristo Vive</div>
-        <!-- Modal Structure -->
-        <div id="data-modal" class="modal">
-          <div class="modal-content">
-            <h4>Ingresar los datos adecuados 😎</h4>
-            <div class="input-field">
-              <input id="modal-input" type="text" class="validate">
-              <label for="modal-input">Servidor de datos activo ✅: estamos trabajando para usted ⚙️</label>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
-          </div>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script>
-          // Initialize modal
-          document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.modal');
-            var instances = M.Modal.init(elems);
-          });
-          // Open modal on cell click
-var cells = document.querySelectorAll('.editable-cell');
-cells.forEach(function(cell) {
-  cell.addEventListener('click', function() {
-    var modalInput = document.getElementById('modal-input');
-    modalInput.value = cell.innerText;
-    var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
-    modalInstance.open();
-    modalInput.focus();
-    cell.classList.add('highlight');
-  });
-});
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-// Save modal data to cell
-var modalSaveButton = document.querySelector('.modal-close');
-modalSaveButton.addEventListener('click', function() {
-  var modalInput = document.getElementById('modal-input');
-  var activeCell = document.querySelector('.editable-cell.highlight');
-  if (activeCell) {
-    activeCell.innerText = modalInput.value;
-    activeCell.classList.remove('highlight');
-    modalInput.value = "";
-  }
-});
+  <div class="footer">
+    <p>Fecha del archivo generado: <span id="today"></span></p>
+  </div>
 
-// Highlight cell on focus
-cells.forEach(function(cell) {
-  cell.addEventListener('focus', function() {
-    cell.classList.add('highlight');
-  });
-  cell.addEventListener('blur', function() {
-    cell.classList.remove('highlight');
-  });
-});
+  <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado."</p>
+  <p>&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V7</p>
 
-var today = new Date();
-var todayElement = document.getElementById('today');
-todayElement.innerText = today.toLocaleDateString();
+  <div>
+    <button id="print-button">Imprimir Organización Semanal</button>
+  </div>
 
-// Print button functionality
-var printButton = document.getElementById('print-button');
-var watermark = document.querySelector('.watermark');
-printButton.addEventListener('click', function() {
-  printButton.style.display = 'none';
-  watermark.style.display = 'block';
-  window.print();
-  printButton.style.display = 'block';
-  watermark.style.display = 'none';
-});
-</script>
+  <div class="watermark">Iglesia Cristo Vive</div>
+
+  <!-- Modal Structure -->
+  <div id="data-modal" class="modal">
+    <div class="modal-content">
+      <h4>Ingresar los datos adecuados 😎</h4>
+      <div class="input-field">
+        <input id="modal-input" type="text" class="validate">
+        <label for="modal-input">Servidor de datos activo ✅: estamos trabajando para usted ⚙️</label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    // Initialize modal
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.modal');
+      var instances = M.Modal.init(elems);
+    });
+
+    // Open modal on cell click
+    var cells = document.querySelectorAll('.editable-cell');
+    cells.forEach(function(cell) {
+      cell.addEventListener('click', function() {
+        var modalInput = document.getElementById('modal-input');
+        modalInput.value = cell.innerText;
+        var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
+        modalInstance.open();
+        modalInput.focus();
+        cell.classList.add('highlight');
+      });
+    });
+
+    // Save modal data to cell
+    var modalSaveButton = document.querySelector('.modal-close');
+    modalSaveButton.addEventListener('click', function() {
+      var modalInput = document.getElementById('modal-input');
+      var activeCell = document.querySelector('.editable-cell.highlight');
+      if (activeCell) {
+        activeCell.innerText = modalInput.value;
+        activeCell.classList.remove('highlight');
+        modalInput.value = "";
+      }
+    });
+
+    // Highlight cell on focus
+    cells.forEach(function(cell) {
+      cell.addEventListener('focus', function() {
+        cell.classList.add('highlight');
+      });
+      cell.addEventListener('blur', function() {
+        cell.classList.remove('highlight');
+      });
+    });
+
+    var today = new Date();
+    var todayElement = document.getElementById('today');
+    todayElement.innerText = today.toLocaleDateString();
+
+    // Print button functionality
+    var printButton = document.getElementById('print-button');
+    var watermark = document.querySelector('.watermark');
+    printButton.addEventListener('click', function() {
+      printButton.style.display = 'none';
+      watermark.style.display = 'block';
+      window.print();
+      printButton.style.display = 'block';
+      watermark.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
