@@ -9,7 +9,7 @@
   <style>
     header {
       text-align: center;
-      background-color: #ff9a9e;
+      background-color: #f2f2f2;
     }
     
     header svg {
@@ -343,9 +343,12 @@
     document.addEventListener('DOMContentLoaded', function() {
       var progressWrapper = document.querySelector('.progress-wrapper');
       progressWrapper.style.display = 'flex';
-
+      window.addEventListener("load", function() {
+      var loader = document.getElementById("loader");
+      var content = document.getElementById("myDiv");
       setTimeout(function() {
-        progressWrapper.style.display = 'none';
+        loader.classList.add("animate-bottom");
+        content.style.display = "block";
       }, 2000);
     });
   </script>
