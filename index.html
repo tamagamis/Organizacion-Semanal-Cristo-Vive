@@ -317,10 +317,11 @@
     document.addEventListener("DOMContentLoaded", function() {
       var elems = document.querySelectorAll(".modal");
       M.Modal.init(elems);
-  
       var printButton = document.getElementById('print-button');
-      printButton.style.display = 'none';
-  
+  printButton.addEventListener('click', function() {
+    validateData();
+  });
+
       var modalSaveButton = document.querySelector('.modal-close');
       modalSaveButton.addEventListener('click', function() {
         var modalInput = document.getElementById('modal-input');
@@ -358,7 +359,26 @@
       }
   
       checkMissingData();
+      function validateData() {
+  var cells = document.querySelectorAll('.editable-cell');
+  var hasMissingData = false;
   
+  cells.forEach(function(cell) {
+    if (cell.innerText.trim() === "") {
+      cell.classList.add('error');
+      hasMissingData = true;
+    } else {
+      cell.classList.remove('error');
+    }
+  });
+  
+  if (hasMissingData) {
+    M.toast({html: 'Por favor, ingrese toda la información requerida'});
+  } else {
+    M.toast({html: 'Organización guardada correctamente'});
+  }
+}
+
       var today = new Date();
       var todayElement = document.getElementById('today');
       todayElement.innerText = today.toLocaleDateString();
