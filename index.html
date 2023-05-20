@@ -298,39 +298,37 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
       var elems = document.querySelectorAll(".modal");
       M.Modal.init(elems);
 
       var printButton = document.getElementById('print-button');
       printButton.style.display = 'none';
-      window.addEventListener("load", function() {
-        printButton.style.display = 'block';
+
+      // Abre el modal al hacer clic en una celda
+      var cells = document.querySelectorAll('.editable-cell');
+      cells.forEach(function(cell) {
+        cell.addEventListener('click', function() {
+          var modalInput = document.getElementById('modal-input');
+          modalInput.value = cell.innerText;
+          var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
+          modalInstance.open();
+          modalInput.focus();
+          cell.classList.add('highlight');
+        });
       });
-    // Open modal on cell click
-    var cells = document.querySelectorAll('.editable-cell');
-    cells.forEach(function(cell) {
-      cell.addEventListener('click', function() {
-        var modalInput = document.getElementById('modal-input');
-        modalInput.value = cell.innerText;
-        var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
-        modalInstance.open();
-        modalInput.focus();
-        cell.classList.add('highlight');
-      });
-    });
 
     // Save modal data to cell
     var modalSaveButton = document.querySelector('.modal-close');
-    modalSaveButton.addEventListener('click', function() {
-      var modalInput = document.getElementById('modal-input');
-      var activeCell = document.querySelector('.editable-cell.highlight');
-      if (activeCell) {
-        activeCell.innerText = modalInput.value;
-        activeCell.classList.remove('highlight');
-        modalInput.value = "";
-      }
-    });
+      modalSaveButton.addEventListener('click', function() {
+        var modalInput = document.getElementById('modal-input');
+        var activeCell = document.querySelector('.editable-cell.highlight');
+        if (activeCell) {
+          activeCell.innerText = modalInput.value;
+          activeCell.classList.remove('highlight');
+          modalInput.value = "";
+        }
+      });
 
     // Highlight cell on focus
     cells.forEach(function(cell) {
