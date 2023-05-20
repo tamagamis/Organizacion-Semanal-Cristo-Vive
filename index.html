@@ -386,9 +386,9 @@
     dataIncompleteMessage.style.display = 'block';
   }
 }
-      function validateData() {
-  var cells = document.querySelectorAll('.editable-cell');
-  var hasMissingData = false;
+function validateData() {
+        var cells = document.getElementsByClassName('editable-cell');
+        var isValid = true;
 
   cells.forEach(function(cell) {
     if (cell.innerText.trim() === "") {
@@ -398,6 +398,20 @@
       cell.classList.remove('error');
     }
   });
+  for (var i = 0; i < cells.length; i++) {
+          if (cells[i].innerHTML.trim() === '') {
+            isValid = false;
+            cells[i].style.backgroundColor = 'red';
+          } else {
+            cells[i].style.backgroundColor = '';
+          }
+        }
+
+        if (isValid) {
+          alert('¡Los datos son válidos!');
+        } else {
+          alert('¡Por favor, complete todos los campos!');
+        }
 
   if (hasMissingData) {
     M.toast({html: 'Para Generar este documento debe llenar todo'});
