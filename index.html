@@ -1,174 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Organización Semanal</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>Organización Semanal - Cristo Vive</title>
   <style>
-    header {
-      text-align: center;
+    body {
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      font-family: Verdana;
     }
     
-    header svg {
-      width: 100px;
-      height: auto;
+    .header {
+      background-color: #333;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
     }
     
-    h1, h2, h3 {
-      text-align: center;
-      font-size: 18px;
+    h1 {
+      margin-top: 0;
     }
-
+    
     .table-responsive {
-      display: block;
-      width: 100%;
       overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
     }
     
     table {
-      border-collapse: collapse;
       width: 100%;
-    }
-    
-    table td, table th {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: center;
-      background-color: #f2f2f2;
-    }
-
-    .modal {
-      width: 75% !important;
-      max-height: 90% !important;
-    }
-
-    .footer {
-      text-align: center;
+      border-collapse: collapse;
       margin-top: 20px;
     }
-
-    .highlight {
-      background-color: #ffeeba !important;
+    
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
     }
-
-    /* CSS animations */
-    .rotate {
-      animation: rotate 4s linear infinite;
-    }
-
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* Improved button styling */
-    .custom-button {
-      border: 2px solid #000;
-      padding: 10px 20px;
+    
+    th {
       background-color: #f2f2f2;
-      color: #000;
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: background-color 0.3s ease;
     }
-
-    .custom-button:hover {
-      background-color: #dcdcdc;
+    
+    .footer {
+      margin-top: 20px;
+      text-align: center;
     }
-
-    /* Background gradients */
-    header {
-      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    
+    .watermark {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      font-size: 80px;
+      opacity: 0.2;
     }
-
-    body {
-      background: linear-gradient(to bottom right, #92fe9d, #00c9ff);
+    
+    .print-button {
+      display: none;
     }
-
-    /* Loading movements */
-    .spinner {
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      border: 3px solid rgba(0, 0, 0, 0.3);
-      border-top-color: #000;
-      border-radius: 50%;
-      animation: spin 1s ease-in-out infinite;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    
+    @media print {
+      .print-button {
+        display: none !important;
+      }
+      
+      .watermark {
+        display: none !important;
+      }
+      
+      table {
+        border-collapse: collapse !important;
+      }
+      
+      th, td {
+        border: 1px solid #000 !important;
+      }
+      
+      td.highlight {
+        background-color: #fff !important;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
+  <header class="header">
     <img src="https://i.ibb.co/YLLzsJ8/tcvl-121x107.webp" alt="tcvl-121x107" border="0">
+    <h1>Organización Semanal - Cristo Vive</h1>
   </header>
-
-  <h1>Organización Semanal - Cristo Vive</h1>
-  <h2>Responsabilidades de Líderes de la Iglesia Cristo Vive</h2>
 
   <div class="table-responsive">
     <table>
       <thead>
         <tr>
           <th></th>
-          <th class="center-align">Martes</th>
-          <th class="center-align">Viernes</th>
-          <th class="center-align">Sábado</th>
-          <th class="center-align">Domingo</th>
+          <th>Martes</th>
+          <th>Viernes</th>
+          <th>Sábado</th>
+          <th>Domingo</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="center-align">Fecha del Servicio</td>
+          <td>Fecha del Servicio</td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
         </tr>
         <tr>
-          <td class="center-align">Dirige</td>
+          <td>Dirige</td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
         </tr>
         <tr>
-          <td class="center-align">Alabanza & Adoración</td>
+          <td>Alabanza & Adoración</td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
         </tr>
         <tr>
-          <td class="center-align">Meditación de la Palabra</td>
-          <td class="editable-cell"></td>
-          <td class="editable-cell"></td>
-          <td class="editable-cell"></td>
-          <td class="editable-cell"></td>
-        </tr>
-        <tr>
-          <td class="center-align">Actividad adicional</td>
-          <td class="editable-cell"></td>
-          <td class="editable-cell"></td>
-          <td class="editable-cell"></td>
-          <td class="editable-cell"></td>
-        </tr>
-        <tr>
-          <td class="center-align">Actividad extraordinaria</td>
-          <td class="editable-cell"></td>
-          <td class="editable-cell"></td>
-          <td class="editable-cell"></td>
-          <td class="editable-cell"></td>
-        </tr>
-        <tr>
-          <td class="center-align">Horario</td>
+          <td>Predicación</td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
           <td class="editable-cell"></td>
@@ -183,43 +138,25 @@
   </div>
 
   <p>"Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado."</p>
-  <p>&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V11 Estable</p>
+  <p>&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V7</p>
 
   <div>
-    <button id="print-button">Imprimir Organización Semanal</button>
+    <button id="print-button" class="print-button">Imprimir Organización Semanal</button>
   </div>
 
   <div class="watermark">Iglesia Cristo Vive</div>
 
-  <!-- Modal Structure -->
-  <div id="data-modal" class="modal">
-    <div class="modal-content">
-      <h4>Ingresar los datos adecuados 😎</h4>
-      <div class="input-field">
-        <input id="modal-input" type="text" class="validate">
-        <label for="modal-input">Servidor de datos activo ✅: estamos trabajando para usted ⚙️</label>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Guardar</a>
-    </div>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
+    var cells = document.querySelectorAll('.editable-cell');
+
     // Initialize modal
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.modal');
-      var instances = M.Modal.init(elems);
-    });
+    var modalInstance = M.Modal.init(document.getElementById('data-modal'));
 
     // Open modal on cell click
-    var cells = document.querySelectorAll('.editable-cell');
     cells.forEach(function(cell) {
       cell.addEventListener('click', function() {
         var modalInput = document.getElementById('modal-input');
         modalInput.value = cell.innerText;
-        var modalInstance = M.Modal.getInstance(document.getElementById('data-modal'));
         modalInstance.open();
         modalInput.focus();
         cell.classList.add('highlight');
