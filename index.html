@@ -55,7 +55,9 @@
       width: 75% !important;
       max-height: 75% !important;
     }
-
+    .hide {
+  display: none;
+}
     .footer {
       text-align: center;
       margin-top: 20px;
@@ -320,6 +322,7 @@
       var printButton = document.getElementById('print-button');
   printButton.addEventListener('click', function() {
     validateData();
+    checkMissingData();
   });
 
       var modalSaveButton = document.querySelector('.modal-close');
@@ -348,17 +351,29 @@
       });
   
       function checkMissingData() {
-        var cells = document.querySelectorAll('.editable-cell');
-        cells.forEach(function(cell) {
-          if (cell.innerText.trim() === "") {
-            cell.classList.add('error');
-          } else {
-            cell.classList.remove('error');
-          }
-        });
-      }
-  
-      checkMissingData();
+  var cells = document.querySelectorAll('.editable-cell');
+  var isDataComplete = true;
+
+  cells.forEach(function(cell) {
+    if (cell.innerText.trim() === "") {
+      cell.classList.add('error');
+      isDataComplete = false;
+    } else {
+      cell.classList.remove('error');
+    }
+  });
+
+  var printButton = document.getElementById('print-button');
+  var dataIncompleteMessage = document.getElementById('data-incomplete-message');
+
+  if (isDataComplete) {
+    printButton.classList.remove('hide');
+    dataIncompleteMessage.style.display = 'none';
+  } else {
+    printButton.classList.add('hide');
+    dataIncompleteMessage.style.display = 'block';
+  }
+}
       function validateData() {
   var cells = document.querySelectorAll('.editable-cell');
   var hasMissingData = false;
