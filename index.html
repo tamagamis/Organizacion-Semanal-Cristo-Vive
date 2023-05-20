@@ -339,11 +339,7 @@
       watermark.style.display = 'block'; // Show the watermark again after printing
     });
 
-    // Show loading spinner on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      var progressWrapper = document.querySelector('.progress-wrapper');
-      progressWrapper.style.display = 'flex';
-      window.addEventListener("load", function() {
+    window.addEventListener("load", function() {
       var loader = document.getElementById("loader");
       var content = document.getElementById("myDiv");
       setTimeout(function() {
