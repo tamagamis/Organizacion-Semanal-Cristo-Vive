@@ -82,6 +82,28 @@
   font-size: 12px;
   color: rgb(163, 163, 163);
 }
+.datepicker-modal {
+      width: 350px !important;
+      max-height: 350px !important;
+      overflow-y: auto !important;
+    }
+    .date-input {
+      position: relative;
+    }
+    .date-input .date-label {
+      position: absolute;
+      top: -10px;
+      left: 10px;
+      background-color: #fff;
+      padding: 0 5px;
+      font-size: 12px;
+    }
+
+    /* Estilos para los horarios */
+    .time-input select {
+      display: block;
+      width: 100%;
+    }
     /* Improved button styling */
     .custom-button {
       border: 2px solid #000;
@@ -262,6 +284,7 @@
       <tbody>
         <tr>
           <td class="center-align">Fecha del Servicio</td>
+          <td class="date-input"></td>
           <td class="editable-cell" contenteditable="true"></td>
           <td class="editable-cell" contenteditable="true"></td>
           <td class="editable-cell" contenteditable="true"></td>
