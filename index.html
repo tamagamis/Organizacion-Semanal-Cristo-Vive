@@ -240,22 +240,27 @@
     }
 
     .mobile-notice {
-      display: none;
-    }
-
-    @media (max-width: 600px) {
-      .mobile-notice {
-        display: block;
-        text-align: center;
-        background-color: #f44336;
-        color: #fff;
-        padding: 10px;
-      }
-    }
+  display: none;
+}
+@media (max-width: 600px) {
+  .mobile-notice {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f44336;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    z-index: 9999;
+  }
+}
   </style>
 </head>
 <body>
-  <div class="mobile-notice">
+  <div class="mobile-notice hide">
     Esta página no está disponible en versión móvil, ejecutar en computadora.
   </div>
   <div id="myDiv">
