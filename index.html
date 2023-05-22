@@ -209,21 +209,10 @@
     }
 
     /* Custom styles */
-    .watermark {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 48px;
-      font-weight: bold;
-      color: rgba(0, 0, 0, 0.1);
-      pointer-events: none;
-      z-index: -1;
-    }
+  .watermark {
+  display: none;
+}
+
         /* Nuevos estilos para mostrar el contenido después de la carga */
         #myDiv {
       display: none;
@@ -242,6 +231,12 @@
     .mobile-notice {
   display: none;
 }
+@media (min-width: 600px) {
+  .mobile-notice {
+    display: none;
+  }
+}
+
 @media (max-width: 600px) {
   .mobile-notice {
     display: block;
@@ -469,6 +464,32 @@ function executeAction() {
         printButton.style.display = 'block';
       }, 2000);
     });
+    function startLoading() {
+  var loader = document.getElementById("loader");
+  loader.style.display = "block";
+}
+
+function stopLoading() {
+  var loader = document.getElementById("loader");
+  loader.style.display = "none";
+}
+function hideWarnings() {
+  var cells = document.querySelectorAll(".editable-cell");
+  for (var i = 0; i < cells.length; i++) {
+    if (cells[i].textContent.trim() === "") {
+      cells[i].classList.add("error");
+    } else {
+      cells[i].classList.remove("error");
+    }
+  }
+}
+    function getDate() {
+  var today = new Date();
+  var month = today.getMonth() + 1;
+  var day = today.getDate();
+  var year = today.getFullYear();
+  return month + "/" + day + "/" + year;
+}
     // Obtener las celdas de fecha y horario por su id
     const fechaServicioCell = document.getElementById('fecha-servicio');
     const horarioCell = document.getElementById('horario');
