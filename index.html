@@ -284,7 +284,7 @@
       <tbody>
         <tr>
           <td class="center-align">Fecha del Servicio</td>
-          <td class="date-input"></td>
+          <td id="fecha-servicio" class="editable-cell" contenteditable="true"></td>
           <td class="editable-cell" contenteditable="true"></td>
           <td class="editable-cell" contenteditable="true"></td>
           <td class="editable-cell" contenteditable="true"></td>
@@ -327,6 +327,7 @@
         </tr>
         <tr>
           <td class="center-align">Horario</td>
+          <td id="horario" class="editable-cell" contenteditable="true"></td>
           <td class="editable-cell" contenteditable="true"></td>
           <td class="editable-cell" contenteditable="true"></td>
           <td class="editable-cell" contenteditable="true"></td>
@@ -368,6 +369,7 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var elems = document.querySelectorAll(".modal");
@@ -473,7 +475,23 @@ function executeAction() {
         printButton.style.display = 'block';
       }, 2000);
     });
-  </script>  
+
+    // Obtener las celdas de fecha y horario por su id
+    const fechaServicioCell = document.getElementById('fecha-servicio');
+    const horarioCell = document.getElementById('horario');
+
+    // Obtener la fecha y hora actual
+    const now = moment();
+
+    // Formatear la fecha y hora en el formato deseado
+    const fechaServicio = now.format('YYYY-MM-DD');
+    const horarioInicio = now.format('HH:mm');
+    const horarioFinal = now.add(2, 'hours').format('HH:mm'); // Ejemplo: el servicio dura 2 horas
+
+    // Establecer los valores en las celdas correspondientes
+    fechaServicioCell.textContent = fechaServicio;
+    horarioCell.textContent = `${horarioInicio} - ${horarioFinal}`;
+  </script>
 <p style="font-size: 12px; opacity: 0.5; text-align: center;">Este documento ha sido aprobado por el departamento de multimedia para su uso</p>
 </body>
 </html>
