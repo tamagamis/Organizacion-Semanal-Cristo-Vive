@@ -368,16 +368,21 @@
   </div>
   <div class="watermark">Iglesia Cristo Vive</div>
   <!-- Modal Structure -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h4>Editar contenido</h4>
+      <input type="text" id="modal-input" class="modal-input">
   <div id="data-modal" class="modal">
     <div class="modal-content">
       <h4>Ingresar los datos adecuados 😎</h4>
+    </div>
       <div class="input-field">
         <input id="modal-input" type="text" class="validate">
         <label for="modal-input">Servidor de datos activo ✅⚙️</label>
       </div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ingresar datos</a>
+      <a href="#!" class="modal-close waves-effect waves-green btn">Guardar</a>
     </div>
   </div>
   <div id="loader" class="progress-wrapper">
@@ -395,6 +400,7 @@
     }
     document.addEventListener("DOMContentLoaded", function() {
       var elems = document.querySelectorAll(".modal");
+      var modalInput = document.getElementById('modal-input');
       M.Modal.init(elems);
       var printButton = document.getElementById('print-button');
   printButton.addEventListener('click', function() {
@@ -424,6 +430,11 @@
           cell.classList.add('highlight');
         });
       });
+      editableCells.forEach(function(cell) {
+        cell.addEventListener('click', function() {
+          modalInput.value = this.textContent;
+          instances[0].open();
+        });
       function checkMissingData() {
   var cells = document.querySelectorAll('.editable-cell');
   var isDataComplete = true;
@@ -526,7 +537,9 @@ function hideWarnings() {
     // Establecer los valores en las celdas correspondientes
     fechaServicioCell.textContent = fechaServicio;
     horarioCell.textContent = `${horarioInicio} - ${horarioFinal}`;
-  </script>
+};
+    )
+</script>
 <p style="font-size: 12px; opacity: 0.5; text-align: center;">Este documento ha sido aprobado por el departamento de multimedia para su uso</p>
 </body>
 </html>
