@@ -216,9 +216,26 @@
     .hide-on-load {
       display: none;
     }
+
+    .mobile-notice {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .mobile-notice {
+        display: block;
+        text-align: center;
+        background-color: #f44336;
+        color: #fff;
+        padding: 10px;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="mobile-notice">
+    Esta página no está disponible en versión móvil , ejecutar en computadora.
+  </div>
   <div id="myDiv">
   <header>
     <img src="https://i.ibb.co/YLLzsJ8/tcvl-121x107.webp" alt="tcvl-121x107" border="0">
