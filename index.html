@@ -256,15 +256,15 @@
 </head>
 <body>
   <div class="mobile-notice">
-    Esta página no está disponible en versión móvil , ejecutar en computadora.
+    Esta página no está disponible en versión móvil, ejecutar en computadora.
   </div>
   <div id="myDiv">
-  <header>
-    <img src="https://i.ibb.co/YLLzsJ8/tcvl-121x107.webp" alt="tcvl-121x107" border="0">
-  </header>
+    <header>
+      <img src="https://i.ibb.co/YLLzsJ8/tcvl-121x107.webp" alt="tcvl-121x107" border="0">
+    </header>
 
-  <h1 style="background-color: #d7e5e7; padding: 10px;">Organización Semanal - Cristo Vive</h1>
-  <h2>Responsabilidades de Líderes de la Iglesia Cristo Vive</h2>
+    <h1 style="background-color: #d7e5e7; padding: 10px;">Organización Semanal - Cristo Vive</h1>
+    <h2>Responsabilidades de Líderes de la Iglesia Cristo Vive</h2>
 
   <div class="table-responsive">
     <table>
@@ -284,11 +284,10 @@
       <tbody>
         <tr>
           <td class="center-align">Fecha del Servicio</td>
-          <td id="fecha-servicio" class="editable-cell" contenteditable="true"></td>
-          <td id="fecha-servicio" class="editable-cell" contenteditable="true"></td>
-          <td id="fecha-servicio" class="editable-cell" contenteditable="true"></td>
-          <td id="fecha-servicio" class="editable-cell" contenteditable="true"></td>
-          <td id="fecha-servicio" class="editable-cell" contenteditable="true"></td>
+          <td id="fecha-servicio-martes" class="editable-cell" contenteditable="true"></td>
+          <td id="fecha-servicio-viernes" class="editable-cell" contenteditable="true"></td>
+          <td id="fecha-servicio-sabado" class="editable-cell" contenteditable="true"></td>
+          <td id="fecha-servicio-domingo" class="editable-cell" contenteditable="true"></td>
         </tr>
         <tr>
           <td class="center-align">Dirige</td>
@@ -331,25 +330,19 @@
           <td id="horario" class="editable-cell" contenteditable="true"></td>
           <td id="horario" class="editable-cell" contenteditable="true"></td>
           <td id="horario" class="editable-cell" contenteditable="true"></td>
-          <td id="horario" class="editable-cell" contenteditable="true"></td>
         </tr>
       </tbody>
     </table>
   </div>
-
   <div class="footer">
     <p style="font-size: 12px; opacity: 0.5; text-align: center;">Archivo generado: <span id="today"></span></p>
 </div>
   <p style="font-size: 12px; opacity: 0.5; text-align: center;">Lo que es, ya ha sido, y lo que será, ya fue, y Dios busca lo que ha pasado.</p>
   <p style="font-size: 12px; opacity: 0.5; text-align: center;">&copy; Equipo 💚 Cristo Vive Multimedia Confidencial, V14 </p>
-  
   <div style="display: flex; justify-content: center;">
     <button id="print-button" class="custom-button hide-on-load">Guardar Organización</button>
   </div>
-
-
   <div class="watermark">Iglesia Cristo Vive</div>
-
   <!-- Modal Structure -->
   <div id="data-modal" class="modal">
     <div class="modal-content">
@@ -363,14 +356,19 @@
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Ingresar datos</a>
     </div>
   </div>
-
   <div id="loader" class="progress-wrapper">
     <div class="progress"></div>
   </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   <script>
+    function guardarDatos() {
+      var fechaServicioMartes = document.getElementById("fecha-servicio-martes").innerText;
+      var fechaServicioViernes = document.getElementById("fecha-servicio-viernes").innerText;
+      var fechaServicioSabado = document.getElementById("fecha-servicio-sabado").innerText;
+      var fechaServicioDomingo = document.getElementById("fecha-servicio-domingo").innerText;
+      alert("Datos guardados correctamente");
+    }
     document.addEventListener("DOMContentLoaded", function() {
       var elems = document.querySelectorAll(".modal");
       M.Modal.init(elems);
@@ -379,7 +377,6 @@
     validateData();
     checkMissingData();
   });
-
       var modalSaveButton = document.querySelector('.modal-close');
       modalSaveButton.addEventListener('click', function() {
         var modalInput = document.getElementById('modal-input');
@@ -392,7 +389,6 @@
         }
         checkMissingData();
       });
-  
       var cells = document.querySelectorAll('.editable-cell');
       cells.forEach(function(cell) {
         cell.addEventListener('click', function() {
@@ -404,11 +400,9 @@
           cell.classList.add('highlight');
         });
       });
-  
       function checkMissingData() {
   var cells = document.querySelectorAll('.editable-cell');
   var isDataComplete = true;
-
   cells.forEach(function(cell) {
     if (cell.innerText.trim() === "") {
       cell.classList.add('error');
@@ -417,10 +411,8 @@
       cell.classList.remove('error');
     }
   });
-
   var printButton = document.getElementById('print-button');
   var dataIncompleteMessage = document.getElementById('data-incomplete-message');
-
   if (isDataComplete) {
     printButton.classList.remove('hide');
     dataIncompleteMessage.style.display = 'none';
@@ -441,16 +433,14 @@
       cell.classList.remove('error');
     }
   });
-
   if (hasMissingData) {
-    M.toast({html: 'Para Generar este documento debe llenar todo'});
+    M.toast({html: 'Para Generar este documento debe llenar todo🔒'});
   } else {
     executeAction();
   }
 }
-
 function executeAction() {
-  M.toast({html: 'Informacion Aprobada'});
+  M.toast({html: 'Aprobado✅'});
 }
       var today = new Date();
       var todayElement = document.getElementById('today');
@@ -465,7 +455,6 @@ function executeAction() {
         printButton.style.display = 'block';
         watermark.style.display = 'block';
       });
-  
       var loader = document.getElementById("loader");
       var content = document.getElementById("myDiv");
       setTimeout(function() {
@@ -475,19 +464,15 @@ function executeAction() {
         printButton.style.display = 'block';
       }, 2000);
     });
-
     // Obtener las celdas de fecha y horario por su id
     const fechaServicioCell = document.getElementById('fecha-servicio');
     const horarioCell = document.getElementById('horario');
-
     // Obtener la fecha y hora actual
     const now = moment();
-
     // Formatear la fecha y hora en el formato deseado
-    const fechaServicio = now.format('YYYY-MM-DD');
-    const horarioInicio = now.format('HH:mm');
-    const horarioFinal = now.add(2, 'hours').format('HH:mm'); // Ejemplo: el servicio dura 2 horas
-
+    const fechaServicio = now.format('DD/MM/YYYY');
+    const horarioInicio = now.format('h:mm A');
+    const horarioFinal = now.add(2, 'hours').format('h:mm A'); // Ejemplo: el servicio dura 2 horas
     // Establecer los valores en las celdas correspondientes
     fechaServicioCell.textContent = fechaServicio;
     horarioCell.textContent = `${horarioInicio} - ${horarioFinal}`;
