@@ -375,7 +375,6 @@
   <div id="data-modal" class="modal">
     <div class="modal-content">
       <h4>Ingresar los datos adecuados 😎</h4>
-    </div>
       <div class="input-field">
         <input id="modal-input" type="text" class="validate">
         <label for="modal-input">Servidor de datos activo ✅⚙️</label>
@@ -430,11 +429,6 @@
           cell.classList.add('highlight');
         });
       });
-      editableCells.forEach(function(cell) {
-        cell.addEventListener('click', function() {
-          modalInput.value = this.textContent;
-          instances[0].open();
-        });
       function checkMissingData() {
   var cells = document.querySelectorAll('.editable-cell');
   var isDataComplete = true;
@@ -537,9 +531,7 @@ function hideWarnings() {
     // Establecer los valores en las celdas correspondientes
     fechaServicioCell.textContent = fechaServicio;
     horarioCell.textContent = `${horarioInicio} - ${horarioFinal}`;
-};
-    )
-</script>
+  </script>
 <p style="font-size: 12px; opacity: 0.5; text-align: center;">Este documento ha sido aprobado por el departamento de multimedia para su uso</p>
 </body>
 </html>
